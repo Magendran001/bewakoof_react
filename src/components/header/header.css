@@ -1,0 +1,21 @@
+.Header_total_part{
+    width: 100%;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    background-color:white ;
+    
+}
+.header_flex_1stpart>div{
+   
+    margin: 0px 10px;
+    font-size: small;
+}
+
+.header_flex_2ndpart>div{
+
+    margin: 0px 30px;
+
+}

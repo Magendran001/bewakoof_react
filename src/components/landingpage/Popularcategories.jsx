@@ -1,10 +1,12 @@
-import { Box, Flex, Grid, GridItem, Heading ,Image,SimpleGrid} from "@chakra-ui/react"
+import { Box, Flex, Grid, GridItem, Heading ,Image,SimpleGrid} from "@chakra-ui/react";
+import {Link} from "react-router-dom"
 
 
 
 const popularcategoriesdata =[{
     name:"Printed T-shirts",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-printed-tshirt-1654498507.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-printed-tshirt-1654498507.png",
+    category:"T-Shirt"
 },
 {
     name:"Plain T-shirts",
@@ -14,37 +16,44 @@ const popularcategoriesdata =[{
 
 {
     name:"Joggers",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1h-1654498503.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1h-1654498503.png",
+    category:"Joggers"
 
 },
 {
     name:"Kurats",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1j-1654498503.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1j-1654498503.png",
+    category: "Kurta",
 
 },
 {
     name:"Vests",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1k-1654498503.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1k-1654498503.png",
+    category: "Vest",
 
 },
 {
     name:"Shorts",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1l-1654498504.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1l-1654498504.png",
+    category: "Shorts",
 
 },
 {
     name:"Shirts",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1m-1654498504.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1m-1654498504.png",
+    category: "Shirt",
 
 },
 {
     name:"Pyjamas",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-printed-pyjama-1654501962.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-printed-pyjama-1654501962.png",
+    category: "Pyjama",
 
 },
 {
     name:"Casual Shoes",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1o-1654498506.png"
+    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1o-1654498506.png",
+    category: "Casual Shoes",
 
 },
 {
@@ -83,9 +92,9 @@ export default Popularcategories
 function Popularcategories_singledata({data})
 {
 
-    return ( <GridItem   >
+    return (<Link to={`/product/${data.category}`}> <GridItem   >
 
         <Image h="100%" src={data.image}/>
-    </GridItem>)
+    </GridItem></Link>)
 
 }

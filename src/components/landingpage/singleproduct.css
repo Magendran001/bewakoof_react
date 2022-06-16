@@ -1,0 +1,16 @@
+
+.Size_input_ALL input{
+    
+    font-size: 13px;
+    display: flex;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    
+   
+    vertical-align: middle;
+}
+.Size_input_ALL input:hover{
+    
+   cursor: pointer;
+}

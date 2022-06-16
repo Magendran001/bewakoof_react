@@ -106,7 +106,7 @@ const The_stupidcollection_data =[{image:"https://images.bewakoof.com/uploads/gr
 
 function Landingpage()
 {
-    return (<div style={{height:"auto",width:"98%",boxSizing:"border-box"}}>
+    return (<div style={{height:"auto",width:"98%",boxSizing:"border-box",margin:"auto"}}>
          <MenuSlider/>
           <Image   w="98%" m="auto" mt="30px" src="https://images.bewakoof.com/uploads/grid/app/desktop-tod-strip-men-1654149139.jpg"/>
           <Design_personal/>

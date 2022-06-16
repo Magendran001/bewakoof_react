@@ -1,6 +1,8 @@
 import { Box, Center, Divider, Flex, Icon, Input, Spacer, Stack } from '@chakra-ui/react';
+import {Link} from "react-router-dom"
 import "./header.css"
 import { FaRegHeart } from "react-icons/fa";
+
 import { MdOutlineShoppingBag } from "react-icons/md";
 
 import { IoMdSearch } from "react-icons/io";
@@ -23,7 +25,7 @@ function Header()
                 <Box>Track Order</Box>
             </Flex>
             <Flex  borderBottom={"1px solid gray"} bg={{base:"hsl(49,98%,60%)",lg:"none"}} h="60px" alignItems={"center"} className='header_flex_2ndpart'  p={{base:"0px",lg:"0px 100px"}}  >
-                <Box  >Bewakoof</Box>
+                <Box  ><Link to="/">Bewakoof</Link></Box>
                 <Box display={{base:"none",lg:"block"}} >MEN</Box>
                 <Box display={{base:"none",lg:"block"}}>WOMEN</Box>
                 <Box display={{base:"none",lg:"block"}}>MOBILE COVERS</Box>

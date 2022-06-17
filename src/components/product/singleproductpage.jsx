@@ -1,24 +1,32 @@
-import axios from "axios"
+import axios from "axios";
 import { useEffect, useState } from "react"
 import { useParams } from "react-router";
 import "./singleproduct.css";
 import { FaStar } from "react-icons/fa";
+import { useDispatch,useSelector } from "react-redux/es/exports";
+import { FETCHPRODUCTBYID } from "../redux/productredux/action";
 
 import {Flex,Heading,Box,Image,Text,Grid,Spacer,Input,Button,Icon,Center} from "@chakra-ui/react"
 
 function Singleprdtpage()
 {
 
-    let [data,setdata] = useState({});
+    let dispatch = useDispatch();
+    let data = useSelector(state => state.product.singleproduct)||{};
+    console.log(data)
+
+    
     let [input,setinputdata] = useState();
-    console.log(data,"data")
+    
 
     let {id} =useParams();
          
     useEffect(()=>{
-        axios.get(`http://localhost:2345/products/category/${id}`)
-        .then(e=>setdata(e.data) )
-        .catch(err=>console.log(err))
+
+        
+
+        dispatch(FETCHPRODUCTBYID(id))
+       
     },[])
 
 
@@ -41,7 +49,7 @@ function Singleprdtpage()
             <Heading fontSize={"20px"}>Bewakoof</Heading> 
             <Text color={"gray"}>{data.custom_name}</Text>
             <Center m="10px 0px" gap={"1"}  w="70px" border={"1px solid black"}>
-                <Text>4.4</Text>
+                <Text>{data.average_rating}</Text>
                 <Icon  color={"gold"} as={FaStar}/>
             </Center>
             <Flex alignItems={"end"} gap="5px">

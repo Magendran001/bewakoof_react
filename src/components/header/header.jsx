@@ -37,7 +37,7 @@ function Header()
       
   
 
-                <Box display={{base:"none",lg:"block"}} >Login</Box>
+                <Box display={{base:"none",lg:"block"}} ><Link to={"/login"}>Login</Link></Box>
                 <Icon mr={"20px"} w={25} h={25} as={FaRegHeart} />
                 <Icon  w={25} h={25} as={MdOutlineShoppingBag} />
                

@@ -1,25 +1,76 @@
 import {Box,Heading,Flex,Text,Spacer} from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown,MdOutlineKeyboardArrowUp } from "react-icons/md";
 import ProductCard from "./productcardpage";
+import {useSearchParams} from "react-router-dom"
 
 
 
 function Productpage()
 {
 
+
+  const params = new URLSearchParams();
+
+
+
+  
+
+ 
+
+    let [color,setcolor] = useState([])
+    let [fit,setfit] = useState([]);
+  let [searchparams,setsearchparams]= useSearchParams();
+  
+
+ 
+ 
+
+          //  useEffect(()=>{
+
+          //   setsearchparams(searchparams)
+           
+
+          //  },[])
    
       
     const [status,setstatus] = useState({gender:false,size:false,Brand:false,color:false,Design:false});
 
+
+    const setcolorhandler =()=>{
+
+        
+
+      color.map(e=>  params.append("color",e) )
+             
+         
+        
+         
+        //  console.log(params)
+
+         setsearchparams(params.toString())
+
+        //  console.log(params.toString());
+        
+         
+
+    }
+
+    const setfithandler =()=>{
+
+
+      fit.map(e=>  params.append("fit",e) )
+      setsearchparams(params.toString())
+    }
+
    
 
     return (<Box  >
-        <Box     minH="500px" h="auto" w="80%" m="auto" mt={"30px"} mb="30px">
+        <Box     minH="500px" h="auto" w={{base:"98%",lg:"80%"}} m="auto" mt={"30px"} mb="30px">
 
-        <Heading   fontSize={"3xl"} display={"flex"} justifyContent={"start"}>Printed T-Shirts for Men</Heading>
-         <Flex   h="auto" gap={30} >
-            <Box position={"sticky"} scroll top="200px"  p="30" height={"700px"}  overflow="scroll"   flex={2}>
+        <Heading   fontSize={"3xl"} display={"flex"}  justifyContent={"start"}>Printed T-Shirts for Men</Heading>
+         <Flex   h="auto" gap={30}  flexDirection={{base:"column",lg:"row"}}>
+            <Box position={{base:"realtive",lg:"sticky"}} scroll top="200px"  p="30" height={"700px"}  overflow="scroll"   flex={2}>
              <Box   >
                       
                       <Flex>
@@ -85,9 +136,9 @@ function Productpage()
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.color?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
                       <Box display={status.color?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
-                      <Text >Red</Text>
-                      <Text >White</Text>
-                      <Text >green</Text>
+                      <Text onClick={()=>{ setcolor([...color,"red"]);setcolorhandler() }} >Red</Text>
+                      <Text onClick={()=>{setcolor([...color,"white"]);setcolorhandler() }}  >White</Text>
+                      <Text onClick={()=>{ setcolor([...color,"green"]);setcolorhandler() }}  >green</Text>
                       </Box>
                         
                       </Box>
@@ -99,9 +150,9 @@ function Productpage()
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.Fit?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
                       <Box display={status.Fit?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
-                      <Text >Regular Fit</Text>
-                      <Text >Oversized</Text>
-                      <Text >Slim Fit</Text>
+                      <Text onClick={()=>{ setfit([...fit,"regular"]);setfithandler() }}  >Regular Fit</Text>
+                      <Text onClick={()=>{ setfit([...fit,"oversized"]);setfithandler() }} >Oversized</Text>
+                      <Text onClick={()=>{ setfit([...fit,"slimfit"]);setfithandler() }} >Slim Fit</Text>
                       </Box>
                         
                       </Box>

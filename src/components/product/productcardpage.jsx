@@ -2,22 +2,29 @@ import {Grid,GridItem,Image,Flex,Text,Box,Icon,Spacer} from "@chakra-ui/react";
 import axios from "axios";
 import { Link } from "react-router-dom"
 import { FaRegHeart } from "react-icons/fa";
-import {useParams} from "react-router-dom"
-import { useEffect, useState } from "react"
+import {useParams} from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { Fetchproductdata } from "../redux/productredux/action";
+import { useEffect, useState } from "react";
+
+
 function ProductCard()
 {
 
     let {category} = useParams();
 
-    console.log(category)
+    
+    let dispatch = useDispatch();
+    let data = useSelector(state => state.product.product);
+   
 
-    let [data,setdata] = useState([]);
-    console.log(data)
+   
+    
       useEffect(()=>{
 
-        axios.get(`http://localhost:2345/products/${category}`)
-        .then(res=>setdata(res.data))
-        .catch(err=>console.log(err))
+        dispatch(Fetchproductdata(category))
+
+      
 
 
       },[])
@@ -33,10 +40,10 @@ function ProductCard()
                 <option>Price:Low to High</option>
              </select>
           </Flex>
-    <Grid templateColumns={"repeat(3,1fr)"} gap="30">
+    <Grid templateColumns={{base:"repeat(2,1fr)",lg:"repeat(3,1fr)"}} gap={{base:2,lg:30}}>
 
         {data.map(e=>{ return <Link to={`/singleprdt/${e._id}`}><GridItem  h="auto" textAlign={"start"}>
-             <Image h="350px" src={`https://images.bewakoof.com/t320/${e.display_image}`}/>
+             <Image h="350px"  src={`https://images.bewakoof.com/t320/${e.display_image}`}/>
              
              <Flex mt="5px"><Text>Bewakoof</Text>
              <Spacer/>

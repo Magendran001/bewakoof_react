@@ -5,7 +5,7 @@ import {Text as P} from "@chakra-ui/react"
 
 function Footer()
 {
-    return (<Box boxSizing="border-box" textAlign={"start"} bg={"black"} p="30px">
+    return (<Box  textAlign={"start"} bg={"black"}  p="30px" >
         <Box w="80%" m="auto">
            
            <Heading display={"flex"} justifyContent={"start"} color={"yellow"}>Bewakoof*</Heading>
@@ -165,7 +165,7 @@ function Footer()
 
             </Box>
 
-            < Grid h="50px" gap={5} color={"hsl(169,43%,51%)"} >
+            < Grid h={{base:"auto",lg:"30px"}} gap={5} color={"hsl(169,43%,51%)"} >
                  
                  
               

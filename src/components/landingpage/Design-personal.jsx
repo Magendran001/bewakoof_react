@@ -19,7 +19,7 @@ const Design_personal_data =[{image:"https://images.bewakoof.com/uploads/grid/ap
 
 function Design_personal()
 {
-    return (<SimpleGrid   columns={{base:3,sm:3,md:4,lg:9}} justifyContent={"center"} alignItems={"center"} gap={5}  w="80%" m="30px auto" h="auto"  boxSizing="border-box">
+    return (<SimpleGrid    columns={{base:3,sm:3,md:4,lg:9}} justifyContent={"center"} alignItems={"center"} gap={5}  w={{base:"90%",lg:"80%"}} m="30px auto" h="auto"  boxSizing="border-box">
 
         {Design_personal_data.map(ele=> <Design_personal_single_prdt  image={ele.image} desc={ele.desc} /> )}
 
@@ -36,7 +36,7 @@ export default Design_personal
 
 function Design_personal_single_prdt({image,desc})
 {
-    return (<Box    h="200px"  >
+    return (<Box     h={{base:"150px",lg:"200px"}}  >
         <Image rounded={5}   src={image}/>
         <Text fontWeight={"bold"} fontSize={"12px"}>{desc}</Text>
 

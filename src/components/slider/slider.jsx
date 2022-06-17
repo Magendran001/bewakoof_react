@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/layout";
 import React, { Component } from "react";
 import Slider from "react-slick";
 import "./slider.css"
@@ -10,7 +11,7 @@ import "./slider.css"
 export  const MenuSlider =()=> {
   
     const settings = {
-      dots: true,
+      
     
       slidesToShow: 3,
       slidesToScroll:1,
@@ -49,7 +50,7 @@ export  const MenuSlider =()=> {
    
 
     return (
-      <div style={{width:"99%",margin:"auto",height:"auto"}}>
+      <Box w="95%" m="auto" h={{base:"350px",lg:"auto"}}>
         
         <Slider className="Total_slider_part" {...settings}>
           <div className="Single_slider_part">
@@ -78,6 +79,6 @@ export  const MenuSlider =()=> {
           <img src="https://images.bewakoof.com/uploads/grid/app/1x1-joggers-men-1655112462.gif"/>
           </div>
         </Slider>
-      </div>
+      </Box>
     );
   }

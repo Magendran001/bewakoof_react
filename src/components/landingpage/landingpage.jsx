@@ -4,6 +4,7 @@ import Common_slider_5grid from "./common_slider_5grid";
 import Design_personal from "./Design-personal";
 import Discount_pe_discount from "./discount_pe_discount";
 import Popularcategories from "./Popularcategories";
+import "./common.css"
 const Discount_pe_discount_data =[{image:"https://images.bewakoof.com/uploads/grid/app/Mid-Size-Banner-buy2get1-banner-refreshment-1654174580.jpg"},
 {image:"https://images.bewakoof.com/uploads/grid/app/Mid-Size-Banner-play-banner-refreshment-1654174646.jpg"},
 {image:"https://images.bewakoof.com/uploads/grid/app/PlusSize-mid-size-banner-men-June-1654178469.jpg"},
@@ -106,26 +107,26 @@ const The_stupidcollection_data =[{image:"https://images.bewakoof.com/uploads/gr
 
 function Landingpage()
 {
-    return (<div style={{height:"auto",width:"98%",boxSizing:"border-box",margin:"auto"}}>
+    return (<Box className="landingpage" boxSizing="border-box"  m={"auto"}>
          <MenuSlider/>
-          <Image   w="98%" m="auto" mt="30px" src="https://images.bewakoof.com/uploads/grid/app/desktop-tod-strip-men-1654149139.jpg"/>
+          <Image   w="98%" h={{base:"100px",lg:"auto"}} m="auto" mt={{base:"60px",lg:"30px"}} src="https://images.bewakoof.com/uploads/grid/app/desktop-tod-strip-men-1654149139.jpg"/>
           <Design_personal/>
-          <Image  w="100%" m="auto" mt="30px" src="https://images.bewakoof.com/uploads/grid/app/thin-banner1440x150-1654857548.gif"/>
+          <Image  w="99%" m="auto" mt="30px" h={{base:"100px",lg:"auto"}} src="https://images.bewakoof.com/uploads/grid/app/thin-banner1440x150-1654857548.gif"/>
           <Popularcategories/>
           <Discount_pe_discount Discount_pe_discount_data={Discount_pe_discount_data}/>
           <Common_slider_5grid header={"BESTSELLERS FOR MEN"} data={Best_seller_data}/>
           <Common_slider_5grid header={"T-SHIRTS UNDER 299"} data={T_shirt_299_data}/>
           <Discount_pe_discount Discount_pe_discount_data={The_stupidcollection_data}/>
-          <Image  w="100%" m="auto" mt="30px" src="https://images.bewakoof.com/uploads/grid/app/desktop---strip-1440---x-150---tribe-1634552003.png"/>
+          <Image  w="100%" m="auto" mt="30px" h={{base:"100px",lg:"auto"}}  src="https://images.bewakoof.com/uploads/grid/app/desktop---strip-1440---x-150---tribe-1634552003.png"/>
           <Box>
             <Heading m="2" >Customize your T-shirts</Heading>
-            <Image  w="100%" m="auto" src="https://images.bewakoof.com/uploads/grid/app/Byou-men-desk-1651215919.jpg"/>
+            <Image  w="100%" m="auto" h={{base:"100px",lg:"auto"}}  src="https://images.bewakoof.com/uploads/grid/app/Byou-men-desk-1651215919.jpg"/>
 
           </Box>
-          <Image  w="100%" m="auto" mt="30px" src="https://images.bewakoof.com/uploads/grid/app/design-survey-desktop-ticker-banner-1646808890.gif"/>
+          <Image  w="100%" m="auto" mt="30px" h={{base:"100px",lg:"auto"}}  src="https://images.bewakoof.com/uploads/grid/app/design-survey-desktop-ticker-banner-1646808890.gif"/>
         
 
-    </div>)
+    </Box>)
 }
 
 export default Landingpage

@@ -19,3 +19,14 @@
     margin: 0px 30px;
 
 }
+
+
+@media only screen and (min-width:0px) and (max-width:500px) {
+
+    .header_flex_2ndpart>div{
+
+        margin: 0px 10px;
+    
+    }
+    
+}

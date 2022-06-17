@@ -4,6 +4,7 @@ import Productpage from "../product/productpage";
 import Singleprdtpage from "../product/singleproductpage";
 import Login from "../login/login";
 import Signup from "../signup/signup";
+import Cartpage from "../cartpage/cartpage";
 
 function Routeshandling()
 {
@@ -16,6 +17,7 @@ function Routeshandling()
             <Route path="/singleprdt/:id" element={<Singleprdtpage/>}></Route>
             <Route path="/login" element={<Login/>}></Route>
             <Route path="/signup" element={<Signup/>}></Route>
+            <Route path="/cartpage" element={<Cartpage/>}></Route>
 
 
         </Routes>

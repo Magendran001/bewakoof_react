@@ -2,6 +2,7 @@ import { Box, Center, Divider, Flex, Icon, Input, Spacer, Stack } from '@chakra-
 import {Link} from "react-router-dom"
 import "./header.css"
 import { FaRegHeart } from "react-icons/fa";
+import { useSelector } from 'react-redux';
 
 import { MdOutlineShoppingBag } from "react-icons/md";
 
@@ -11,6 +12,8 @@ import { IoMdSearch } from "react-icons/io";
 
 function Header()
 {
+
+    let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
     return (<div className='Header_total_part'>
 
         <Box h="auto" >
@@ -37,9 +40,10 @@ function Header()
       
   
 
-                <Box display={{base:"none",lg:"block"}} ><Link to={"/login"}>Login</Link></Box>
+                <Box display={{base:"none",lg:"block"}} >{IsAuth?<Link to="/">Logout</Link>:<Link to={"/login"}>Login</Link>}</Box>
                 <Icon mr={"20px"} w={25} h={25} as={FaRegHeart} />
-                <Icon  w={25} h={25} as={MdOutlineShoppingBag} />
+                <Link to="/cartpage">  <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Link>
+              
                
                
             </Flex>

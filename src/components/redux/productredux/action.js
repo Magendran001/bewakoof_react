@@ -36,7 +36,7 @@ const Fetchproductdata = (category) => (dispatch) => {
 
     dispatch(Fetchproductdatarequest())
 
-    axios.get(`http://localhost:2345/products/${category}`)
+    axios.get(`https://bewakoofreact.herokuapp.com/products/${category}`)
         .then(res => {
             dispatch(Fetchproductdatasuccess(res.data))
 
@@ -55,7 +55,7 @@ const FETCHPRODUCTBYID = (id) => (dispatch) => {
 
 
     dispatch(Fetchproductby_id_request())
-    axios.get(`http://localhost:2345/products/category/${id}`)
+    axios.get(`https://bewakoofreact.herokuapp.com/products/category/${id}`)
         .then(e => {
             dispatch(Fetchproductby_id_success(e.data));
 

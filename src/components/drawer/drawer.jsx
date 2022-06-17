@@ -6,31 +6,49 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
+    useDisclosure,
+    Button,
+    Input,
+    Box
   } from '@chakra-ui/react'
+  import React from 'react';
+  import { useSelector } from 'react-redux';
+  import { Link } from 'react-router-dom';
 import { useState } from "react"
-function Drawerleft() {
+
+
+  export default Drawerleft
+
+  function Drawerleft({app}) {
+
+    let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const [placement, setPlacement] = useState('right')
+    const btnRef = React.useRef()
   
     return (
       <>
-        
-        <Button colorScheme='blue' onClick={onOpen}>
-          Open
+        <Button ref={btnRef} bg=""  onClick={onOpen}>
+           {app}
         </Button>
-        <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
+        <Drawer
+          isOpen={isOpen}
+          placement='left'
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
           <DrawerOverlay />
           <DrawerContent>
-            <DrawerHeader borderBottomWidth='1px'>Basic Drawer</DrawerHeader>
+            <DrawerCloseButton />
+            <DrawerHeader>Hi,</DrawerHeader>
+  
             <DrawerBody>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
-              <p>Some contents...</p>
+                <Box  onClick={onClose}>{IsAuth?<Link to="/">Logout</Link>:<Link to={"/login"}>Login</Link>}</Box>
+              
             </DrawerBody>
+  
+            
           </DrawerContent>
         </Drawer>
       </>
     )
   }
-
-  export default Drawerleft

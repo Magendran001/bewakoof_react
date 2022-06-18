@@ -24,15 +24,20 @@ function Singleprdtpage()
     useEffect(()=>{
 
         
-
+ 
         dispatch(FETCHPRODUCTBYID(id))
+        window.scrollTo(0, 0)
+        
        
     },[])
+
+    
 
 
     const changehandler =(e)=>{
 
         setinputdata(e.target.value)
+        
 
         
 
@@ -40,10 +45,10 @@ function Singleprdtpage()
 
     return (
     
-    <Box m="30px" >
-    <Flex flexDirection={{base:"column",lg:"row"}} gap="30px" w={{base:"90%",lg:"80%"}} m="auto" h="auto">
-        <Box display={"flex"} justifyContent="center" flex="3">
-           <Image w="70%" h="90%" src={`https://images.bewakoof.com/t320/${data.display_image}`}/>
+    <Box  minH={"400px"} m="30px" >
+    <Flex   flexDirection={{base:"column",lg:"row"}} gap={{base:0,lg:"30px"}}w={{base:"100%",lg:"80%"}} m="auto" h="auto">
+        <Box m="auto"  display={"flex"} justifyContent="center" flex="3">
+           <Image w={{base:"100%",lg:"70%"}} h="90%" src={`https://images.bewakoof.com/t320/${data.display_image}`}/>
         </Box>
         <Box p={"10px"} textAlign={"start"}  flex="2">
             <Heading fontSize={"20px"}>Bewakoof</Heading> 
@@ -72,7 +77,7 @@ function Singleprdtpage()
                     <Spacer/>
                     <Text as="u" color={"teal"}>Size Guide</Text>
                 </Flex>
-                <Flex className="Size_input_ALL" alignItems={"center"}  h="50px" w="70%" gap={"10px"}>
+                <Flex className="Size_input_ALL" alignItems={"center"}  h="50px" w={{base:"100%",lg:"70%"}} gap={"10px"}>
                     <Input readOnly name="S" onClick={changehandler} bg={input=="S"?"black":"none"} color={input=="S"?"white":"black"}     value="S"  placeholder="S" />
                     <Input readOnly name="M" onClick={changehandler} bg={input=="M"?"black":"none"} color={input=="M"?"white":"black"}  value="M" placeholder="M" />
                     <Input readOnly name="L" onClick={changehandler} bg={input=="L"?"black":"none"} color={input=="L"?"white":"black"}   value="L" placeholder="L" />

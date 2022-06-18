@@ -26,12 +26,13 @@ function Productpage()
  
  
 
-          //  useEffect(()=>{
-
-          //   setsearchparams(searchparams)
+           useEffect(()=>{
+ 
+           
+            window.scrollTo(0, 500)
            
 
-          //  },[])
+           },[])
    
       
     const [status,setstatus] = useState({gender:false,size:false,Brand:false,color:false,Design:false});

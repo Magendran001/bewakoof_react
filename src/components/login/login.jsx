@@ -43,26 +43,26 @@ function Login()
   }
 
 
-    return (<Box><Flex  direction={{base:"column",lg:"row"}}>
-               <Box  position={"relative"}  h={"700px"}  flex={1} >
+    return (<Box><Flex   direction={{base:"column",lg:"row"}}>
+               <Box   position={"relative"}  h={"700px"}  flex={1} >
                  <Heading pos={"absolute"} top="20px" left="20px" bg={"rgb(255,248,220)"}>Welcome to the world of Bewakoof!</Heading>
                <Image h="100%" w="100%" bg={"rgb(255,248,220)"} src="https://images.bewakoof.com/web/group-19-1617704502.png"/>
                </Box>
-               <Center flex={1}>
+               <Center  flex={1}>
 
-                 <Box p="20px"  w={{base:"95%",lg:"600px"}}  boxSizing="border-box">
+                 <Box  p={{base:"10px",lg:"20px"}} w={{base:"97%",lg:"600px"}}  boxSizing="border-box">
                      <Heading m="30px">Login/Signup</Heading>
                      <Text color={"gray"} fontSize="20px" mb="50px">for Latest trends, exciting offers and everything Bewakoof!</Text>
                              <Box w="90%" m="auto">
-                        <Flex m="5px auto" rounded={5} p="0px 8px" gap="2" border={"1px solid gray"} w="95%" h="60px" alignItems={"center"}>
+                        <Flex  m="5px auto" rounded={5} p="0px 8px" gap="2" border={"1px solid gray"} w="95%" h="60px" alignItems={"center"}>
                             <Flex  p="4px 10px"  bg={"hsl(0,0%,96%)"}> <Image w="25px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlJeXMZx_Qk9XD43shNib1vJr9yHOg9_Nxg&usqp=CAU"/> <Text color={"gray"}>  +91</Text></Flex>
                             
-                            <Input  name="mobile_number" type={"number"} onChange={(e)=>{Loginhandler(e.target)}} outline={"none"} variant='unstyled' placeholder="Enter Mobile Number"/>
+                            <Input   name="mobile_number" type={"number"} onChange={(e)=>{Loginhandler(e.target)}} outline={"none"}  placeholder="Enter Mobile Number"/>
                         </Flex>
-                        <Flex m="5px auto" rounded={5} p="0px 85px" gap="2" border={"1px solid gray"} w="95%" h="60px" alignItems={"center"}>
+                        <Flex m="5px auto" rounded={5}  p="0px 10px 0px 80px" gap="2" border={"1px solid gray"} w="95%" h="60px" alignItems={"center"}>
                           
                             
-                            <Input name="password" onChange={(e)=>{Loginhandler(e.target)}} type={"password"}  outline={"none"} variant='unstyled' placeholder="Password"/>
+                            <Input  name="password" onChange={(e)=>{Loginhandler(e.target)}} type={"password"}  outline={"none"}  placeholder="Password"/>
                         </Flex>
                     
                      <Button onClick={Postloginhandler} m="5px auto"  h="60px" bg="teal" color={"white"} w="95%">CONTINUE</Button>

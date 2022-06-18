@@ -32,7 +32,7 @@ const POSTSIGNUP = (obj) => (dispatch) => {
 
     console.log(obj, "obj")
 
-    axios.post("http://localhost:2345/signup", obj)
+    axios.post("https://bewakoofreact.herokuapp.com/signup", obj)
         .then(res => {
             console.log(res.data)
 

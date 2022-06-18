@@ -67,7 +67,7 @@ function Productpage()
    
 
     return (<Box  >
-        <Box     minH="500px" h="auto" w={{base:"98%",lg:"80%"}} m="auto" mt={"30px"} mb="30px">
+        <Box     minH="1500px" h="auto" w={{base:"98%",lg:"80%"}} m="auto" mt={"30px"} mb="30px">
 
         <Heading   fontSize={"3xl"} display={"flex"}  justifyContent={"start"}>Printed T-Shirts for Men</Heading>
          <Flex   h="auto" gap={30}  flexDirection={{base:"column",lg:"row"}}>

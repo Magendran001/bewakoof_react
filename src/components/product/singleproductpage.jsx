@@ -5,15 +5,24 @@ import "./singleproduct.css";
 import { FaStar } from "react-icons/fa";
 import { useDispatch,useSelector } from "react-redux/es/exports";
 import { FETCHPRODUCTBYID } from "../redux/productredux/action";
+import { useNavigate } from "react-router-dom";
 
 import {Flex,Heading,Box,Image,Text,Grid,Spacer,Input,Button,Icon,Center} from "@chakra-ui/react"
+import Loadingspinner from "../loadingspinner/loadingspinner";
+import { POSTWISHLIST } from "../redux/wishlist/action";
 
 function Singleprdtpage()
 {
-
+ 
+    let nav = useNavigate();
+ 
+     let userid =  useSelector(state=>state.Loginreducer.user_id)||null;
+     
+    let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
+    let Spinner = useSelector(state => state.product.isLoading);
     let dispatch = useDispatch();
     let data = useSelector(state => state.product.singleproduct)||{};
-    console.log(data)
+   
 
     
     let [input,setinputdata] = useState();
@@ -43,9 +52,28 @@ function Singleprdtpage()
 
     }
 
+    const baghandler =()=>{
+
+        if(IsAuth)
+        {
+
+            let obj = {user_id:userid,product_id:data._id}
+           
+            dispatch(POSTWISHLIST({...obj}))
+            
+        }
+        else{
+             nav("/login")
+        }
+
+        
+    }
+
     return (
     
-    <Box  minH={"400px"} m="30px" >
+    <Box pos={"relative"}   minH={"400px"} m="30px" >
+
+{Spinner&&<Box boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' bg={"white"} rounded={10} transform={{base:"translate(50%,150%)",md:"translate(200%,50%)",lg:"translate(450%,50%)"}}  zIndex={1} pos={"absolute"}  > <Loadingspinner/></Box>}
     <Flex   flexDirection={{base:"column",lg:"row"}} gap={{base:0,lg:"30px"}}w={{base:"100%",lg:"80%"}} m="auto" h="auto">
         <Box m="auto"  display={"flex"} justifyContent="center" flex="3">
            <Image w={{base:"100%",lg:"70%"}} h="90%" src={`https://images.bewakoof.com/t320/${data.display_image}`}/>
@@ -53,10 +81,10 @@ function Singleprdtpage()
         <Box p={"10px"} textAlign={"start"}  flex="2">
             <Heading fontSize={"20px"}>Bewakoof</Heading> 
             <Text color={"gray"}>{data.custom_name}</Text>
-            <Center m="10px 0px" gap={"1"}  w="70px" border={"1px solid black"}>
+          {  data.average_rating&& <Center m="10px 0px" gap={"1"}  w="70px" border={"1px solid black"}>
                 <Text>{data.average_rating}</Text>
                 <Icon  color={"gold"} as={FaStar}/>
-            </Center>
+            </Center>}
             <Flex alignItems={"end"} gap="5px">
                 <Text fontSize={"22px"} fontWeight="bold">${data.price}</Text>
                 <Text color={"gray"} as="del" fontSize={"15px"}>${data.all_offer_price}</Text>
@@ -88,7 +116,7 @@ function Singleprdtpage()
 
             </Box>
             <Flex  m="15px 0px" gap={10} >
-                <Button flex={1}      bg={"yellow"} >
+                <Button flex={1}   onClick={baghandler}    bg={"yellow"} >
                     ADD TO BAG
 
                 </Button>

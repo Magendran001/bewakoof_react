@@ -1,7 +1,26 @@
 import { Box, Button, Flex, Heading,Text,Image, Spacer, Divider, Select, Center, Grid } from "@chakra-ui/react"
-
+import { useEffect } from "react";
+import { useSelector } from 'react-redux';
+import WishlistCard from "./wishlistcard";
 function Cartpage()
 {
+
+    let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);
+    console.log(Wishlistdata,"wishlistdata");
+
+    
+
+    let total_mrp =Wishlistdata?.map(a=>a.product_id.all_offer_price);
+    total_mrp= total_mrp.length!=0?total_mrp.reduce((a,b)=>a+b):0
+
+     let totalprice = Wishlistdata?.map(a=>a.product_id.price);
+     totalprice= totalprice.length!=0?totalprice.reduce((a,b)=>a+b):0;
+
+     let totaldiscount = total_mrp-totalprice;
+
+
+    console.log(total_mrp,totalprice,"total_mrp")
+
     return (<div><Box h="auto" m="20px 0px">
 
             <Box w={{base:"100%",lg:"80%"}} m="auto">
@@ -14,43 +33,7 @@ function Cartpage()
                         <Center pl={4} justifyContent={"start"} bg={"hsl(71,100%,97%)"} h="40px" >
                             <Text>Yay! You get FREE delivery on this order</Text>
                         </Center>
-                        <Box mt="30px" border={"1px solid gray"} p="20px" pb={0} rounded={5}>
-                            <Flex >
-                                   
-                                   <Box >
-                                     <Text>Pineapple Yellow Round Neck 3/4th Sleeve T-Shirt</Text>
-                                     <Center justifyContent={"start"} gap="10px" mt="3px">
-                                        <Text fontSize={"xl"} fontWeight={"bold"}>&#8377;1375</Text>
-                                        <Text as="del" color={"gray"}>$1995</Text>
-                                     </Center>
-                                     <Text color={"green"} mt="3px">You saved ₹620!</Text>
-                                      <Flex  w="200px"  mt={"20px"} gap="10px">
-                                         <Select border={"1px solid gray"}>
-                                            <option>Size:</option>
-                                            <option>M</option>
-                                            <option>L</option>
-                                            <option>XL</option>
-                                         </Select>
-                                         <Select border={"1px solid gray"}>
-                                            <option>Qty:</option>
-                                            <option>5</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                         </Select>
-                                      </Flex>
-
-                                   </Box>
-                                          <Spacer/>
-                                   <Image w="100px" h="120px" rounded={5} src="https://images.bewakoof.com/t320/pineapple-yellow-round-neck-3-4th-sleeve-t-shirt-231551-1637995773-1.jpg"/>
-                            </Flex> 
-                            <Divider mt="30px"/>
-                            
-                            <Flex  h="50px" >
-                                <Button h="100%" flex={1}>Remove</Button>
-                               
-                                <Button h="100%" flex={2}>Move to Wishlist</Button>
-                            </Flex>
-                        </Box>
+                         {Wishlistdata.map(e=><WishlistCard data={e.product_id}/>)}
                         
                     </Box>
                     <Box  p={{base:"20px",lg:0}}  flex={2}>
@@ -91,7 +74,7 @@ function Cartpage()
                                         <Flex>
                                             <Text>Total MRP (Incl. of taxes) </Text>
                                             <Spacer/>
-                                            <Text>₹ 1299</Text>
+                                            <Text>₹ {total_mrp}</Text>
                                             
 
                                         </Flex>
@@ -105,18 +88,18 @@ function Cartpage()
                                         <Flex>
                                             <Text>Bag Discount  </Text>
                                             <Spacer/>
-                                            <Text>- ₹800</Text>
+                                            <Text>- ₹{totaldiscount}</Text>
                                             
 
                                         </Flex>
                                         <Flex>
                                             <Text>Subtotal  </Text>
                                             <Spacer/>
-                                            <Text>₹ 499</Text>
+                                            <Text>₹ {totalprice}</Text>
                                             
 
                                         </Flex>
-                                        <Text p={1} rounded={12} w="90%" m="10px auto" mb="40px" bgColor={"hsl(107,37%,93%)"} >You are saving ₹ 800 on this order</Text>
+                                        <Text p={1} rounded={12} w="90%" m="10px auto" mb="40px" bgColor={"hsl(107,37%,93%)"} >You are saving ₹ {totaldiscount} on this order</Text>
                                     </Grid>
                                   </Box>
 
@@ -127,7 +110,7 @@ function Cartpage()
                                     <Center p={"10px 15px"}>
                                         <Grid>
                                             <Text>Total</Text>
-                                            <Text>&#8377;499</Text>
+                                            <Text>&#8377;{totalprice}</Text>
                                         </Grid>
                                         <Spacer/>
                                         <Button w={{base:"150px",lg:"270px"}} h="50px" color={"white"} bg={"teal"}>ADD ADDRESS</Button>

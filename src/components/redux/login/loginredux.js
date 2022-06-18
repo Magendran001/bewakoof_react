@@ -1,5 +1,5 @@
 import { Logintypes } from "./action";
-const init = { userdata: {}, isLoading: false, error: false, isAuth: false };
+const init = { userdata: {}, isLoading: false, error: false, isAuth: false, user_id: "", token: "" };
 
 
 const Loginreducer = (state = init, { type, payload }) => {
@@ -8,7 +8,8 @@ const Loginreducer = (state = init, { type, payload }) => {
         case Logintypes.LOGINSUCCESS:
             {
 
-                return { ...state, userdata: payload, isLoading: false, isAuth: true }
+                console.log(payload.user._id, "payloadddddddd")
+                return { ...state, userdata: payload, isLoading: false, isAuth: true, user_id: payload.user._id, token: payload.token }
             }
         case Logintypes.LOGINREQUEST:
             {

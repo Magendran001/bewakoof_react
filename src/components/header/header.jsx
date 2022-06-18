@@ -10,11 +10,29 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 
 import { IoMdSearch } from "react-icons/io";
 import Drawerleft from '../drawer/drawer';
+import { useDispatch } from 'react-redux/es/exports';
+import { useEffect } from 'react';
+import { Fetchwishlistdata } from '../redux/wishlist/action';
+
 
 
 
 function Header()
 {
+
+
+    let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);
+    console.log(Wishlistdata,"wishlistdat");
+    let dispatch = useDispatch();
+
+
+    useEffect(()=>{
+            
+        dispatch(Fetchwishlistdata())
+
+        
+    },[])
+
 
     let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
     return (<div className='Header_total_part'>
@@ -51,7 +69,7 @@ function Header()
 
                 <Box display={{base:"none",lg:"block"}} >{IsAuth?<Link to="/">Logout</Link>:<Link to={"/login"}>Login</Link>}</Box>
                 <Icon mr={"20px"} w={25} h={25} as={FaRegHeart} />
-                <Link to="/cartpage">  <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Link>
+                <Link to="/cartpage"> <Box pos={"relative"}><Box rounded={10} bg={{base:"red",lg:"hsl(49,98%,60%)"}} w="20px" h="auto" color={{base:"white",lg:"black"}} pos={"absolute"} right="-5px" top="-5px">{Wishlistdata.length}</Box> <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Box> </Link>
               
                
                

@@ -1,4 +1,4 @@
-import { Box, Center, Divider, Flex, Icon, Input, Spacer, Stack } from '@chakra-ui/react';
+import { Box, Center, Divider, Flex, Heading, Icon, Input, Spacer, Stack } from '@chakra-ui/react';
 import {Link} from "react-router-dom"
 import "./header.css"
 import { FaRegHeart } from "react-icons/fa";
@@ -13,6 +13,7 @@ import Drawerleft from '../drawer/drawer';
 import { useDispatch } from 'react-redux/es/exports';
 import { useEffect } from 'react';
 import { Fetchwishlistdata } from '../redux/wishlist/action';
+import { Logoutfun } from '../redux/login/action';
 
 
 
@@ -22,19 +23,35 @@ function Header()
 
 
     let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);
+    let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
+    let userid = useSelector(state=>state.Loginreducer.user_id);
+    
+    
     console.log(Wishlistdata,"wishlistdat");
     let dispatch = useDispatch();
+    console.log(IsAuth)
 
 
     useEffect(()=>{
+ 
+
+
+        if(IsAuth)
+        {
+            dispatch(Fetchwishlistdata(userid))
+        }
+        
+       
             
-        dispatch(Fetchwishlistdata())
+      
+            
+      
 
         
-    },[])
+    },[IsAuth])
 
 
-    let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
+   
     return (<div className='Header_total_part'>
 
         <Box h="auto" >
@@ -55,7 +72,7 @@ function Header()
                     <Drawerleft app={<Icon fontSize={"x-large"} as={GoThreeBars}/>} />
                 </Box>
                
-                <Box   ><Link to="/">Bewakoof</Link></Box>
+                <Box    ><Link to="/"><Heading>Bewakoof</Heading></Link></Box>
                 <Box   display={{base:"none",lg:"block"}} >MEN</Box>
                 <Box display={{base:"none",lg:"block"}}>WOMEN</Box>
                 <Box display={{base:"none",lg:"block"}}>MOBILE COVERS</Box>
@@ -67,9 +84,9 @@ function Header()
       
   
 
-                <Box display={{base:"none",lg:"block"}} >{IsAuth?<Link to="/">Logout</Link>:<Link to={"/login"}>Login</Link>}</Box>
+                <Box display={{base:"none",lg:"block"}} >{IsAuth?<button  onClick={()=>{dispatch(Logoutfun())}}>Logout</button>:<Link to={"/login"}>Login</Link>}</Box>
                 <Icon mr={"20px"} w={25} h={25} as={FaRegHeart} />
-                <Link to="/cartpage"> <Box pos={"relative"}><Box rounded={10} bg={{base:"red",lg:"hsl(49,98%,60%)"}} w="20px" h="auto" color={{base:"white",lg:"black"}} pos={"absolute"} right="-5px" top="-5px">{Wishlistdata.length}</Box> <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Box> </Link>
+                <Link to="/cartpage"> <Box pos={"relative"}><Box rounded={10} bg={{base:"red",lg:"hsl(49,98%,60%)"}} w="20px" h="auto" color={{base:"white",lg:"black"}} pos={"absolute"} right="-5px" top="-5px">{IsAuth&&Wishlistdata.length}</Box> <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Box> </Link>
               
                
                

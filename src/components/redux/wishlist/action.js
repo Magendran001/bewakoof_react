@@ -83,12 +83,13 @@ const POSTWISHLIST = (obj) => (dispatch) => {
 
 }
 
-const Fetchwishlistdata = () => (dispatch) => {
+const Fetchwishlistdata = (id) => (dispatch) => {
 
     dispatch(FetchWishlistrequest())
 
-    axios.get("https://bewakoofreact.herokuapp.com/wishlist")
+    axios.get(`https://bewakoofreact.herokuapp.com/wishlist/${id}`)
         .then(res => {
+            console.log("res", id)
             dispatch(FetchWishlistsuccess(res.data))
 
 
@@ -96,7 +97,12 @@ const Fetchwishlistdata = () => (dispatch) => {
         }
 
         )
-        .catch(err => dispatch(FetchWishlisterror()))
+        .catch(err => {
+            dispatch(FetchWishlisterror())
+            console.log(err)
+        }
+
+        )
 
 
 }

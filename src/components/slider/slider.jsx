@@ -50,7 +50,7 @@ export  const MenuSlider =()=> {
    
 
     return (
-      <Box overflow={"hidden"} w="95%"  m="auto" h={{base:"350px",lg:"auto"}}>
+      <Box  overflow={"hidden"} w="95%"  m="auto" mt={{base:"70px",lg:"190px"}} h={{base:"350px",lg:"auto"}}>
         
         <Slider className="Total_slider_part" {...settings}>
           <div className="Single_slider_part">

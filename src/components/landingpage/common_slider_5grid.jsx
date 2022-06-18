@@ -5,7 +5,7 @@ import Slider from "react-slick";
 
 function Common_slider_5grid({data,header})
 {
-    return (<Box boxSizing="border-box" w="99%" m="auto">
+    return (<Box boxSizing="border-box" w="99%"  m="auto" >
           <Heading>{header}</Heading>
           <Box   m="auto" p="0px 20px" mt={"10px"} className="Total_slider" ><Simpleslider data={data}/></Box>
           

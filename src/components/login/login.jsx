@@ -32,7 +32,7 @@ function Login()
 
     const Loginhandler =(e)=>{
            
-        let {name,value} = e
+        let {name,value} = e;
 
         setloginobj({...loginobj,[name]:value })
     }

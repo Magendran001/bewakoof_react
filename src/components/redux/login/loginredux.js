@@ -1,5 +1,8 @@
 import { Logintypes } from "./action";
-const init = { userdata: {}, isLoading: false, error: false, isAuth: false, user_id: "", token: "" };
+let data = JSON.parse(localStorage.getItem("user_details"));
+let auth = data?.token ? true : false;
+// console.log(data, "datas")
+const init = { userdata: auth ? data : {}, isLoading: false, error: false, isAuth: auth, user_id: auth ? data.user._id : "", token: auth ? data.token : "", };
 
 
 const Loginreducer = (state = init, { type, payload }) => {
@@ -8,8 +11,8 @@ const Loginreducer = (state = init, { type, payload }) => {
         case Logintypes.LOGINSUCCESS:
             {
 
-                console.log(payload.user._id, "payloadddddddd")
-                return { ...state, userdata: payload, isLoading: false, isAuth: true, user_id: payload.user._id, token: payload.token }
+
+                return { ...state, userdata: payload, isLoading: false, isAuth: true, user_id: payload.user._id, token: payload.token, user_details: localStorage.setItem("user_details", JSON.stringify(payload)) }
             }
         case Logintypes.LOGINREQUEST:
             {
@@ -21,6 +24,12 @@ const Loginreducer = (state = init, { type, payload }) => {
             {
 
                 return { ...state, isLoading: false, error: true }
+            }
+
+        case Logintypes.Logout:
+            {
+
+                return { ...state, isAuth: false, user_details: localStorage.setItem("user_details", JSON.stringify(null)) }
             }
 
 

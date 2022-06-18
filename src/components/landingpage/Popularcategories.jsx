@@ -8,11 +8,7 @@ const popularcategoriesdata =[{
     image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-printed-tshirt-1654498507.png",
     category:"T-Shirt"
 },
-{
-    name:"Plain T-shirts",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1g-1654498502.png"
 
-},
 
 {
     name:"Joggers",
@@ -55,22 +51,7 @@ const popularcategoriesdata =[{
     image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1o-1654498506.png",
     category: "Casual Shoes",
 
-},
-{
-    name:"Boxers",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1b-1654498500.png"
-
-},
-{
-    name:"Mobile Covers",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1c-1654498500.png"
-
-},
-{
-    name:"Backpacks",
-    image:"https://images.bewakoof.com/uploads/grid/app/categories-to-bag-boxes-size-1p-1654498506.png"
-
-},
+}
 ]
 
 

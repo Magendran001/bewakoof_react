@@ -5,6 +5,7 @@ const Logintypes = {
     "LOGINREQUEST": "LOGINREQUEST",
     "LOGINSUCCESS": "LOGINSUCCESS",
     "LOGINERROR": "LOGINERROR",
+    "Logout": "Logout"
 
 
 }
@@ -20,6 +21,17 @@ const PostLoginsuccess = (payload) => {
 
 const PostLoginerror = () => {
     return { type: Logintypes.LOGINERROR }
+}
+
+const Logout = () => {
+
+    return { type: Logintypes.Logout }
+}
+
+const Logoutfun = () => (dispatch) => {
+
+
+    dispatch(Logout())
 }
 
 
@@ -75,5 +87,5 @@ const POSTLOGIN = (obj, nav) => (dispatch) => {
 
 
 
-export { POSTLOGIN, Logintypes }
+export { POSTLOGIN, Logintypes, Logoutfun }
 

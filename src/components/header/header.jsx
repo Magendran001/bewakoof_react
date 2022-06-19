@@ -72,7 +72,7 @@ function Header()
                     <Drawerleft app={<Icon fontSize={"x-large"} as={GoThreeBars}/>} />
                 </Box>
                
-                <Box    ><Link to="/"><Heading>Bewakoof</Heading></Link></Box>
+                <Box  fontWeight={"bold"}   ><Link to="/">Bewakoof</Link></Box>
                 <Box   display={{base:"none",lg:"block"}} >MEN</Box>
                 <Box display={{base:"none",lg:"block"}}>WOMEN</Box>
                 <Box display={{base:"none",lg:"block"}}>MOBILE COVERS</Box>

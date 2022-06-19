@@ -23,7 +23,7 @@ function Authentication({children})
     if(!IsAuth)
     {
        
-       return <Navigate to="/login" state={history} />
+       return <Navigate to="/login" state={history}  replace={true}/>
     }
 
 

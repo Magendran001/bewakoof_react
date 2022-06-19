@@ -26,7 +26,7 @@ function Login()
 
         if(selector)
         {
-            nav(history?.state?.pathname?history.state.pathname:"/cartpage")
+            nav(history?.state?.pathname?history.state.pathname:"/",{replace:true})
         }
 
 

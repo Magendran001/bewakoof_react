@@ -29,7 +29,7 @@ const Loginreducer = (state = init, { type, payload }) => {
         case Logintypes.Logout:
             {
 
-                return { ...state, isAuth: false, user_details: localStorage.setItem("user_details", JSON.stringify(null)) }
+                return { ...state, isAuth: false, userdata: {}, user_details: localStorage.setItem("user_details", JSON.stringify(null)) }
             }
 
 

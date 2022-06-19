@@ -88,7 +88,7 @@ function Header()
 
                 <Box display={{base:"none",lg:"block"}} >{IsAuth?<button  onClick={()=>{dispatch(Logoutfun())}}>Logout</button>:<Link to={"/login"}>Login</Link>}</Box>
                 <Icon mr={"20px"} w={25} h={25} as={FaRegHeart} />
-                <Link to="/cartpage"> <Box pos={"relative"}><Box rounded={10} bg={{base:"red",lg:"hsl(49,98%,60%)"}} w="20px" h="auto" color={{base:"white",lg:"black"}} pos={"absolute"} right="-5px" top="-5px">{IsAuth&&Wishlistdata.length}</Box> <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Box> </Link>
+                <Link to="/cartpage" > <Box pos={"relative"}><Box rounded={10} bg={{base:"red",lg:"hsl(49,98%,60%)"}} w="20px" h="auto" color={{base:"white",lg:"black"}} pos={"absolute"} right="-5px" top="-5px">{IsAuth&&Wishlistdata.length}</Box> <Icon  w={25} h={25} as={MdOutlineShoppingBag} /></Box> </Link>
               
                
                

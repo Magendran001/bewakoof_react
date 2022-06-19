@@ -14,6 +14,9 @@ import { POSTWISHLIST } from "../redux/wishlist/action";
 
 function Singleprdtpage()
 {
+
+
+    let [redirect,setredirect] =useState(false);
  
 
     let toastauth = useSelector(state=>state.toastreducer.active);
@@ -45,6 +48,11 @@ function Singleprdtpage()
        
     },[])
 
+    if(redirect)
+    {
+        return (<Navigate to="/login" state={{pathname:`/singleprdt/${id}`}} />)
+    }
+
     
 
 
@@ -69,8 +77,9 @@ function Singleprdtpage()
         }
 
         else{
+            setredirect(true)
             console.log("yes")
-             nav("/login")
+             
         }
 
         

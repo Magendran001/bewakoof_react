@@ -4,6 +4,13 @@ import { useSelector } from 'react-redux';
 import WishlistCard from "./wishlistcard";
 function Cartpage()
 {
+        
+    
+
+
+    
+
+
 
    
     let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);

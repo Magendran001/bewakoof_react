@@ -25,8 +25,10 @@ import { Logoutfun } from '../redux/login/action';
   function Drawerleft({app}) {
 
     let dispatch = useDispatch();
-   let username = useSelector(state=>state.Loginreducer?.userdata?.user?.full_name)||"";
-   console.log(username,"userdetias")
+  
+   let username= useSelector(state=>state.Loginreducer?.userdata?.user?.full_name)||"";
+
+
     let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()

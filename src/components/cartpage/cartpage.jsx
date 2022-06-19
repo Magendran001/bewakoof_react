@@ -6,7 +6,14 @@ import WishlistCard from "./wishlistcard";
 function Cartpage()
 {
         
-    
+    useEffect(()=>{
+ 
+           
+        window.scrollTo(0, 0)
+       
+
+       },[])
+
 
 
     
@@ -31,7 +38,7 @@ function Cartpage()
 
     
 
-    return (<div><Box h="auto" m="100px 0px">
+    return (<div><Box minH={"200px"} h="auto" m="100px 0px">
 
 
 

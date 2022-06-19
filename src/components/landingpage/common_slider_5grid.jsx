@@ -1,13 +1,13 @@
-import { Box, Grid, GridItem, Heading,Image,Text } from "@chakra-ui/react"
+import { Box, Center, Grid, GridItem, Heading,Image,Text } from "@chakra-ui/react"
 import React, { Component } from "react";
 import "./common.css"
 import Slider from "react-slick";
 
 function Common_slider_5grid({data,header})
 {
-    return (<Box boxSizing="border-box" w="99%"  m="auto" >
+    return (<Box boxSizing="border-box"  w="99%"  m="auto" >
           <Heading>{header}</Heading>
-          <Box   m="auto" p="0px 20px" mt={"10px"} className="Total_slider" ><Simpleslider data={data}/></Box>
+          <Box   m="auto"w={"85%"}   className="Total_slider" ><Simpleslider data={data}/></Box>
           
          
     </Box>)
@@ -59,13 +59,13 @@ function Simpleslider({data}){
       ]
     };
     return (
-      <div>
+      <Box  m="auto">
         
         <Slider {...settings}>
 
             {data.map(e=><Box   >
 
-                <Image h="90%" w="90%" src={e.image}/>
+                <Image  h="90%"  m={"auto"} src={e.image}/>
                 <Box>
                 <Text fontSize={"18px"} display={"inline"}> &#x20b9; {e.price} </Text>
                 <Text display={"inline"} as='del' >{e.discount}</Text>
@@ -74,17 +74,18 @@ function Simpleslider({data}){
             </Box>)}
           
         </Slider>
-      </div>
+      </Box>
     );
   }
 
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
+   
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black" }}
+        
         onClick={onClick}
       />
     );
@@ -92,10 +93,11 @@ function Simpleslider({data}){
   
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
+    console.log(className,"className")
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black" }}
+       
         onClick={onClick}
       />
     );

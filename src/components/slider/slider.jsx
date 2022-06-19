@@ -53,29 +53,29 @@ export  const MenuSlider =()=> {
       <Box  overflow={"hidden"} w="95%"  m="auto" mt={{base:"70px",lg:"190px"}} h={{base:"350px",lg:"auto"}}>
         
         <Slider className="Total_slider_part" {...settings}>
-          <div className="Single_slider_part">
+          <div key="1" className="Single_slider_part">
             <img src="https://images.bewakoof.com/uploads/grid/app/Static-Banner-1-1-Oversized-Tshirt-Men-1654684413.jpg"/>
           </div>
-          <div className="Single_slider_part">
+          <div key="2"  className="Single_slider_part">
            <img src="https://images.bewakoof.com/uploads/grid/app/b1g1-1x1-m-1655216421.jpg"/>
            
           </div>
-          <div className="Single_slider_part">
+          <div key="3"  className="Single_slider_part">
           <img src="https://images.bewakoof.com/uploads/grid/app/Static-Banner-1-1-Buy-2-Men-1654684412.jpg"/>
           </div>
-          <div className="Single_slider_part">
+          <div key="4"  className="Single_slider_part">
           <img src="https://images.bewakoof.com/uploads/grid/app/Static-Banner-1-1-Printed-Tshirts-Men-2-1654684414.jpg"/>
           </div>
-          <div className="Single_slider_part">
+          <div key="5"  className="Single_slider_part">
           <img src="https://images.bewakoof.com/uploads/grid/app/OOFsale-Homepage-Static-1X1-men-ENDS48HRS-02-1655230715.gif"/>
           </div>
-          <div className="Single_slider_part">
+          <div key="6"   className="Single_slider_part">
           <img src="https://images.bewakoof.com/uploads/grid/app/Static-Banner-1-1-Just-Arrived-Coords-Men-1654967804.gif"/>
           </div>
-          <div className="Single_slider_part">
+          <div key="7"  className="Single_slider_part">
           <img src="https://images.bewakoof.com/uploads/grid/app/new-styles--fresh-looks-banner-1x1-men-1655120135.gif"/>
           </div>
-          <div className="Single_slider_part">
+          <div  key="8" className="Single_slider_part">
           <img src="https://images.bewakoof.com/uploads/grid/app/1x1-joggers-men-1655112462.gif"/>
           </div>
         </Slider>

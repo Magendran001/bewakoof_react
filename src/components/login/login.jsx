@@ -9,6 +9,15 @@ import Toast from "../toast/toast";
 
 function Login()
 {
+
+    useEffect(()=>{
+ 
+           
+        window.scrollTo(0, 100)
+       
+
+       },[])
+
          
     let history = useLocation();
    
@@ -56,19 +65,19 @@ function Login()
                </Box>
                <Center  flex={1}>
 
-                 <Box  p={{base:"10px",lg:"20px"}} w={{base:"97%",lg:"600px"}}  boxSizing="border-box">
+                 <Box  p={{base:"5px",lg:"20px"}} w={{base:"100%",lg:"600px"}}  boxSizing="border-box">
                      <Heading m="30px">Login/Signup</Heading>
                      <Text color={"gray"} fontSize="20px" mb="50px">for Latest trends, exciting offers and everything Bewakoof!</Text>
                              <Box w="90%" m="auto">
                         <Flex  m="5px auto" rounded={5} p="0px 8px" gap="2" border={"1px solid gray"} w="95%" h="60px" alignItems={"center"}>
                             <Flex  p="4px 10px"  bg={"hsl(0,0%,96%)"}> <Image w="25px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxlJeXMZx_Qk9XD43shNib1vJr9yHOg9_Nxg&usqp=CAU"/> <Text color={"gray"}>  +91</Text></Flex>
                             
-                            <Input   name="mobile_number" type={"number"} onChange={(e)=>{Loginhandler(e.target)}} outline={"none"}  placeholder="Enter Mobile Number"/>
+                            <Input  isRequired  name="mobile_number" type={"number"} onChange={(e)=>{Loginhandler(e.target)}} outline={"none"}  placeholder="Enter Mobile Number"/>
                         </Flex>
                         <Flex m="5px auto" rounded={5}  p="0px 10px 0px 80px" gap="2" border={"1px solid gray"} w="95%" h="60px" alignItems={"center"}>
                           
                             
-                            <Input  name="password" onChange={(e)=>{Loginhandler(e.target)}} type={"password"}  outline={"none"}  placeholder="Password"/>
+                            <Input  isRequired name="password" onChange={(e)=>{Loginhandler(e.target)}} type={"password"}  outline={"none"}  placeholder="Password"/>
                         </Flex>
                     
                      <Button onClick={Postloginhandler} m="5px auto"  h="60px" bg="teal" color={"white"} w="95%">CONTINUE</Button>

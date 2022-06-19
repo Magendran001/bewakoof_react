@@ -98,7 +98,7 @@ function Singleprdtpage()
 
     return (
     
-    <Box pos={"relative"}   minH={"400px"} m="80px" >
+    <Box pos={"relative"}   minH={"400px"} mt="80px" m={{base:"",lg:"30px"}}>
         
 
 {Spinner&&<Box boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' bg={"white"} rounded={10} transform={{base:"translate(50%,150%)",md:"translate(200%,50%)",lg:"translate(450%,50%)"}}  zIndex={1} pos={"absolute"}  > <Loadingspinner/></Box>}
@@ -143,7 +143,7 @@ function Singleprdtpage()
                 </Flex>
 
             </Box>
-            <Flex  m="15px 0px" gap={10} >
+            <Flex  m="15px 0px" gap={2} >
                 <Button flex={1}   onClick={baghandler}    bg={"yellow"} >
                     ADD TO BAG
 

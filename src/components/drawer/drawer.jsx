@@ -25,7 +25,8 @@ import { Logoutfun } from '../redux/login/action';
   function Drawerleft({app}) {
 
     let dispatch = useDispatch();
-
+   let username = useSelector(state=>state.Loginreducer.userdata.user.full_name);
+   console.log(username,"userdetias")
     let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
@@ -44,7 +45,7 @@ import { Logoutfun } from '../redux/login/action';
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Hi,</DrawerHeader>
+            <DrawerHeader>Hi,<Heading>{username}</Heading></DrawerHeader>
   
             <DrawerBody fontWeight={"bold"} fontSize={"20px"}>
                 <Box  onClick={onClose}>{IsAuth?<button onClick={()=>{dispatch(Logoutfun())}} >Logout</button>:<Link to={"/login"}>Login</Link>}</Box>

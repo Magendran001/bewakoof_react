@@ -39,7 +39,7 @@ const Logoutfun = () => (dispatch) => {
 
 const POSTLOGIN = (obj, nav) => (dispatch) => {
 
-
+    console.log(obj, "loginobj")
 
     dispatch(PostLoginrequest())
 
@@ -73,23 +73,30 @@ const POSTLOGIN = (obj, nav) => (dispatch) => {
 
             dispatch(Toastinactive())
         })
+
         .catch(err => {
             dispatch(PostLoginerror());
             console.log(err.response);
 
+
+
             if (err?.response?.data?.User) {
+
                 nav("/signup")
 
 
             }
             else if (err?.response?.data?.message) {
+
                 alert(err.response.data.message)
             }
             else {
+
                 alert("Something Went wrong")
             }
 
         })
+
 
 
 }

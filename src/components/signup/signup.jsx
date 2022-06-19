@@ -9,7 +9,8 @@ import Toast from "../toast/toast";
 function Signup()
 {
 
-
+   let toastauth = useSelector(state=>state.toastreducer.active);
+   console.log(toastauth,"toastauth")
     let nav = useNavigate();
     let Data = useSelector(state =>state.Signupreducer.success);
     console.log(Data,"DATA")
@@ -78,7 +79,7 @@ function Signup()
 
 
           </Flex>
-          <Toast description={"Seem like you are new user"}/>
+          {toastauth&&<Toast description={"Seem like you are new user"}/>}
     </Box>)
 }
 

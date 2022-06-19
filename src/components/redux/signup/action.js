@@ -1,4 +1,5 @@
 import axios from "axios";
+import { POSTLOGIN } from "../login/action";
 
 
 const Signuptypes = {
@@ -51,7 +52,12 @@ const POSTSIGNUP = (obj) => (dispatch) => {
 
         }
 
+
         )
+        .then(res => {
+
+            dispatch(POSTLOGIN({ password: obj.password, mobile_number: obj.mobile_number }))
+        })
         .catch(err => {
             dispatch(Postsignuperror());
             console.log(err)

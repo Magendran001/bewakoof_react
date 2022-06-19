@@ -3,14 +3,17 @@ import { POSTLOGIN } from "../redux/login/action";
 import {Button, Image,Input,Text,Divider} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Toast from "../toast/toast";
 
 
 function Login()
 {
          
+    let history = useLocation();
+   
     let toastauth = useSelector(state=>state.toastreducer.active);
+
     
     let nav = useNavigate();
 
@@ -23,7 +26,7 @@ function Login()
 
         if(selector)
         {
-            nav("/")
+            nav(history?.state?.pathname?history.state.pathname:"/cartpage")
         }
 
 

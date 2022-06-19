@@ -5,7 +5,7 @@ import "./singleproduct.css";
 import { FaStar } from "react-icons/fa";
 import { useDispatch,useSelector } from "react-redux/es/exports";
 import { FETCHPRODUCTBYID } from "../redux/productredux/action";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Navigate } from "react-router-dom";
 
 import {Flex,Heading,Box,Image,Text,Grid,Spacer,Input,Button,Icon,Center} from "@chakra-ui/react"
 import Toast from "../toast/toast";
@@ -67,7 +67,9 @@ function Singleprdtpage()
             dispatch(POSTWISHLIST({...obj}))
             
         }
+
         else{
+            console.log("yes")
              nav("/login")
         }
 

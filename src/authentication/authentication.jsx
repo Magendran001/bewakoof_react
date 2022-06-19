@@ -1,23 +1,31 @@
 import { useEffect } from "react";
 import {useSelector} from "react-redux"
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useLocation,Navigate,NavLink} from "react-router-dom";
 function Authentication({children})
 {
+
+    let history = useLocation();
+    console.log(history,"history")
+    
+
        
     let nav = useNavigate();
     let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
-    console.log(IsAuth,"ISAuth")
+   
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        if(!IsAuth)
-        {
-            return (nav("/login"))
-        }
-
+       
              
 
-    },[IsAuth])
+    // },[IsAuth])
+
+    if(!IsAuth)
+    {
+       
+       return <Navigate to="/login" state={history} />
+    }
+
 
 
     return (<div>{children}</div>)

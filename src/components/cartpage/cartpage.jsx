@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Heading,Text,Image, Spacer, Divider, Select, Center, Grid } from "@chakra-ui/react"
 import { useEffect } from "react";
+import Loadingspinner from "../loadingspinner/loadingspinner";
 import { useSelector } from 'react-redux';
 import WishlistCard from "./wishlistcard";
 function Cartpage()
@@ -9,8 +10,8 @@ function Cartpage()
 
 
     
-
-
+    let Spinner = useSelector(state => state.Wishlistreducer.isLoading);
+    
 
    
     let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);
@@ -31,6 +32,8 @@ function Cartpage()
     
 
     return (<div><Box h="auto" m="100px 0px">
+
+
 
             <Box w={{base:"100%",lg:"80%"}} m="auto">
 

@@ -6,9 +6,10 @@ import { FaStar } from "react-icons/fa";
 import { useDispatch,useSelector } from "react-redux/es/exports";
 import { FETCHPRODUCTBYID } from "../redux/productredux/action";
 import { useNavigate,Navigate } from "react-router-dom";
+import Toast from "../toast/toast";
 
 import {Flex,Heading,Box,Image,Text,Grid,Spacer,Input,Button,Icon,Center} from "@chakra-ui/react"
-import Toast from "../toast/toast";
+
 import Loadingspinner from "../loadingspinner/loadingspinner";
 import { POSTWISHLIST } from "../redux/wishlist/action";
 
@@ -33,7 +34,10 @@ function Singleprdtpage()
    
 
     
-    let [input,setinputdata] = useState();
+    let [input,setinputdata] = useState("");
+     let [alertsize,setalertsize] = useState({alert1:false,alert2:false});
+     console.log(alertsize,"alertsize")
+  
     
 
     let {id} =useParams();
@@ -57,7 +61,7 @@ function Singleprdtpage()
 
 
     const changehandler =(e)=>{
-
+        setalertsize({alert1:true,alert2:true})
         setinputdata(e.target.value)
         
 
@@ -67,7 +71,7 @@ function Singleprdtpage()
 
     const baghandler =()=>{
 
-        if(IsAuth)
+        if(IsAuth && input.length!==0)
         {
 
             let obj = {user_id:userid,product_id:data._id}
@@ -75,6 +79,13 @@ function Singleprdtpage()
             dispatch(POSTWISHLIST({...obj}))
             
         }
+        else  if(IsAuth && input.length==0)
+        {
+
+            setalertsize({alert1:!alertsize.alert1,alert2:alertsize.alert1})
+            
+        }
+        
 
         else{
             setredirect(true)
@@ -87,7 +98,7 @@ function Singleprdtpage()
 
     return (
     
-    <Box pos={"relative"}   minH={"400px"} m="30px" >
+    <Box pos={"relative"}   minH={"400px"} m="80px" >
         
 
 {Spinner&&<Box boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' bg={"white"} rounded={10} transform={{base:"translate(50%,150%)",md:"translate(200%,50%)",lg:"translate(450%,50%)"}}  zIndex={1} pos={"absolute"}  > <Loadingspinner/></Box>}
@@ -151,7 +162,7 @@ function Singleprdtpage()
 
         </Box>
     </Flex>
-   
+     {alertsize.alert1?alertsize.alert2?"":<Box pos={"absolute"} visibility={"hidden"}><Toast title={"Size"} error={"error"} description={"Please Select size "}/></Box>:alertsize.alert2?<Box pos={"absolute"} visibility={"hidden"}><Toast title={"Size"} description={"Please Select size "} error={"error"} /></Box>:""}
          {toastauth&&<Toast title={"Cart."} description={"Product added successfully!"}/>}
     </Box>)
 }

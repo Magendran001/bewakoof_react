@@ -2,18 +2,42 @@ import { Box, Center, Divider, Flex, Spacer,Text,Image } from "@chakra-ui/react"
 import { Button, Select } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux"
 import { Removecartitem } from "../redux/wishlist/action";
+import Loadingspinner from "../loadingspinner/loadingspinner";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function WishlistCard({data,id,user_id})
 { 
+
+   
+   let Spinner = useSelector(state => state.Wishlistreducer.isLoading);
+ 
+   let [cartboolen,setcartboolean] = useState(false)
+   
    let dispatch = useDispatch();
 
    const Cartremovefun =()=>{
 
+      setcartboolean(true)
       dispatch(Removecartitem(id,user_id))
+      
 
    }
 
-    return (<Box  mt="30px" border={"1px solid gray"} p="20px" pb={0} rounded={5}>
+   useEffect(()=>{
+           
+      if(!Spinner)
+      {
+         setcartboolean(false)
+      }
+   
+
+   },[Spinner])
+
+    return (<Box  mt="30px" pos={"relative"}  border={"1px solid gray"} p="20px" pb={0} rounded={5}>
+      {Spinner&&cartboolen&& <Box pos={"absolute"}  left="25%" top={"10%"}  zIndex={1} > <Loadingspinner /></Box>}
+    
+     
     <Flex >
            
            <Box >

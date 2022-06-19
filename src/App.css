@@ -9,6 +9,7 @@
   
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -45,13 +46,15 @@
 }
 
 
-@media only screen and (min-width:0px) and (max-width:700px) {
+@media only screen and  (min-width:700px) {
 
   
-   .App{
-   
+  .App>div:nth-child(2){
+    
+    margin-top: 200px;
+  
     
     
-   }
+  }
   
 }

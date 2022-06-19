@@ -6,7 +6,8 @@ function Cartpage()
 {
 
     let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);
-    console.log(Wishlistdata,"wishlistdata");
+    console.log(Wishlistdata,"wishlist")
+    
 
     
 
@@ -33,7 +34,7 @@ function Cartpage()
                         <Center pl={4} justifyContent={"start"} bg={"hsl(71,100%,97%)"} h="40px" >
                             <Text>Yay! You get FREE delivery on this order</Text>
                         </Center>
-                         {Wishlistdata.map(e=><WishlistCard data={e.product_id}/>)}
+                         {Wishlistdata.map(e=> <WishlistCard user_id={e.user_id} id={e._id} data={e.product_id}/>)}
                         
                     </Box>
                     <Box  p={{base:"20px",lg:0}}  flex={2}>

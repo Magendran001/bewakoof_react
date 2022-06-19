@@ -8,6 +8,9 @@ const Wishlisttypes = {
     "FETCHWISHLISTREQUEST": "FETCHWISHLISTREQUEST",
     "FETCHWISHLISTSUCCESS": "FETCHWISHLISTSUCCESS",
     "FETCHWISHLISTERROR": "FETCHWISHLISTERROR",
+    "REMOVECARTITEMREQ": "REMOVECARTITEMREQ",
+    "REMOVECARTITEMSUCCESS": "REMOVECARTITEMSUCCESS",
+    "REMOVECARTITEMERROR": "REMOVECARTITEMERROR"
 
 
 }
@@ -33,6 +36,16 @@ const FetchWishlistsuccess = (payload) => {
 
 const FetchWishlisterror = () => {
     return { type: Wishlisttypes.FETCHWISHLISTERROR }
+}
+const REMOVEWishlistrequest = () => {
+    return { type: Wishlisttypes.REMOVECARTITEMREQ }
+}
+const REMOVEWishlistsuccess = () => {
+    return { type: Wishlisttypes.REMOVECARTITEMSUCCESS }
+}
+
+const REMOVEWishlisterror = () => {
+    return { type: Wishlisttypes.REMOVECARTITEMERROR }
 }
 
 
@@ -67,7 +80,7 @@ const POSTWISHLIST = (obj) => (dispatch) => {
 
         )
         .then((res) => {
-            dispatch(Fetchwishlistdata())
+            dispatch(Fetchwishlistdata(obj.user_id))
         })
         .catch(err => {
             dispatch(PostWishlisterror());
@@ -108,5 +121,38 @@ const Fetchwishlistdata = (id) => (dispatch) => {
 }
 
 
-export { POSTWISHLIST, Wishlisttypes, Fetchwishlistdata }
+const Removecartitem = (id, userid) => (dispatch) => {
+
+
+
+
+
+
+    dispatch(REMOVEWishlistrequest())
+
+    axios.delete(`https://bewakoofreact.herokuapp.com/wishlist/${id}`)
+        .then(res => {
+            console.log("res", id)
+            dispatch(REMOVEWishlistsuccess(res.data))
+
+
+
+        }
+
+        )
+        .then(res => {
+
+            console.log(userid, "userid")
+
+            dispatch(Fetchwishlistdata(userid))
+        })
+        .catch(err => {
+            dispatch(REMOVEWishlisterror())
+            console.log(err)
+        }
+
+        )
+}
+
+export { POSTWISHLIST, Wishlisttypes, Fetchwishlistdata, Removecartitem }
 

@@ -41,6 +41,23 @@ const Wishlistreducer = (state = init, { type, payload }) => {
                 return { ...state, isLoading: false, error: true }
             }
 
+        case Wishlisttypes.REMOVECARTITEMSUCCESS:
+            {
+
+
+                return { ...state, isLoading: false }
+            }
+        case Wishlisttypes.REMOVECARTITEMREQ:
+            {
+
+                return { ...state, isLoading: true }
+            }
+
+        case Wishlisttypes.REMOVECARTITEMERROR:
+            {
+
+                return { ...state, isLoading: false, error: true }
+            }
 
 
 

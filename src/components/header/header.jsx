@@ -52,7 +52,9 @@ function Header()
 
 
    
-    return (<div className='Header_total_part'>
+    return (
+    <Box h={"auto"}>
+    <div className='Header_total_part'>
 
         <Box h="auto" >
             <Flex bg="hsl(0,0%,90%)" display={{base:"none",lg:"flex"}} h="40px" alignItems={"center"} className='header_flex_1stpart'   p="0px 100px" >
@@ -102,7 +104,7 @@ function Header()
             </Box>
 
         </Box>
-    </div>)
+    </div></Box>)
 }
 
 export default Header

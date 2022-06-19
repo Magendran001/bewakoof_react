@@ -1,8 +1,21 @@
 import { Box, Center, Divider, Flex, Spacer,Text,Image } from "@chakra-ui/react"
 import { Button, Select } from "@chakra-ui/react"
+import { useDispatch, useSelector } from "react-redux"
+import { Removecartitem } from "../redux/wishlist/action";
 
-function WishlistCard({data})
+function WishlistCard({data,id,user_id})
 {
+   
+         
+    
+   
+   let dispatch = useDispatch();
+
+   const Cartremovefun =()=>{
+
+      dispatch(Removecartitem(id,user_id))
+
+   }
 
     return (<Box  mt="30px" border={"1px solid gray"} p="20px" pb={0} rounded={5}>
     <Flex >
@@ -36,7 +49,7 @@ function WishlistCard({data})
     <Divider mt="30px"/>
     
     <Flex gap={2} h="50px" >
-        <Button h="100%" flex={1}>Remove</Button>
+        <Button h="100%" onClick={Cartremovefun} flex={1}>Remove</Button>
        
         <Button h="100%" flex={2}>Move to Wishlist</Button>
     </Flex>

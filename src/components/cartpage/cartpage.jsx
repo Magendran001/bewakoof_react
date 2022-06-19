@@ -5,8 +5,9 @@ import WishlistCard from "./wishlistcard";
 function Cartpage()
 {
 
+   
     let Wishlistdata = useSelector(state=>state.Wishlistreducer.wishlistdata);
-    console.log(Wishlistdata,"wishlist")
+   
     
 
     
@@ -20,13 +21,13 @@ function Cartpage()
      let totaldiscount = total_mrp-totalprice;
 
 
-    console.log(total_mrp,totalprice,"total_mrp")
+    
 
-    return (<div><Box h="auto" m="20px 0px">
+    return (<div><Box h="auto" m="100px 0px">
 
             <Box w={{base:"100%",lg:"80%"}} m="auto">
 
-                <Heading textAlign={"start"} mb="30px">My Bag 5 item(s)</Heading>
+                <Heading textAlign={"start"} mb="30px">My Bag {Wishlistdata.length} item(s)</Heading>
                 <Flex flexDirection={{base:"column",lg:"row"}} gap={"30px"}>
 
                     <Box flex={3} textAlign={"start"}>

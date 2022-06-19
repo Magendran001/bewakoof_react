@@ -4,11 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Removecartitem } from "../redux/wishlist/action";
 
 function WishlistCard({data,id,user_id})
-{
-   
-         
-    
-   
+{ 
    let dispatch = useDispatch();
 
    const Cartremovefun =()=>{

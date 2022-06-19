@@ -4,6 +4,7 @@ import {useDispatch,useSelector} from "react-redux";
 import { POSTSIGNUP } from "../redux/signup/action";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Toast from "../toast/toast";
 
 function Signup()
 {
@@ -77,6 +78,7 @@ function Signup()
 
 
           </Flex>
+          <Toast description={"Seem like you are new user"}/>
     </Box>)
 }
 

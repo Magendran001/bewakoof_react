@@ -1,4 +1,6 @@
 import axios from "axios";
+import Toast from "../../toast/toast";
+import { Toastactive, Toastinactive } from "../toast/action";
 
 
 const Wishlisttypes = {
@@ -80,6 +82,19 @@ const POSTWISHLIST = (obj) => (dispatch) => {
 
         )
         .then((res) => {
+
+            dispatch(Toastactive())
+        })
+        .then((res) => {
+
+            dispatch(Toastinactive())
+        })
+        .then((res) => {
+
+
+
+
+
             dispatch(Fetchwishlistdata(obj.user_id))
         })
         .catch(err => {

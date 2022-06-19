@@ -4,11 +4,14 @@ import {Button, Image,Input,Text,Divider} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Toast from "../toast/toast";
 
 
 function Login()
 {
-          
+         
+    let toastauth = useSelector(state=>state.toastreducer.active);
+    
     let nav = useNavigate();
 
     let dispatch = useDispatch();
@@ -91,7 +94,9 @@ function Login()
                </Center>
          
         
-         </Flex></Box>)
+         </Flex>
+         {toastauth&&<Toast title={"login"} description={"login Successful"}/>}
+         </Box>)
 }
 
 export default Login

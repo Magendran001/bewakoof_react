@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Toastactive, Toastinactive } from "../toast/action";
 
 
 const Logintypes = {
@@ -64,6 +65,14 @@ const POSTLOGIN = (obj, nav) => (dispatch) => {
         }
 
         )
+        .then((res) => {
+
+            dispatch(Toastactive())
+        })
+        .then((res) => {
+
+            dispatch(Toastinactive())
+        })
         .catch(err => {
             dispatch(PostLoginerror());
             console.log(err.response);

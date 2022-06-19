@@ -8,15 +8,20 @@ import { FETCHPRODUCTBYID } from "../redux/productredux/action";
 import { useNavigate } from "react-router-dom";
 
 import {Flex,Heading,Box,Image,Text,Grid,Spacer,Input,Button,Icon,Center} from "@chakra-ui/react"
+import Toast from "../toast/toast";
 import Loadingspinner from "../loadingspinner/loadingspinner";
 import { POSTWISHLIST } from "../redux/wishlist/action";
 
 function Singleprdtpage()
 {
  
+
+    let toastauth = useSelector(state=>state.toastreducer.active);
+    console.log(toastauth,"toastauth")
     let nav = useNavigate();
  
      let userid =  useSelector(state=>state.Loginreducer.user_id)||null;
+
      
     let IsAuth = useSelector(state=>state.Loginreducer.isAuth);
     let Spinner = useSelector(state => state.product.isLoading);
@@ -72,6 +77,7 @@ function Singleprdtpage()
     return (
     
     <Box pos={"relative"}   minH={"400px"} m="30px" >
+        
 
 {Spinner&&<Box boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' bg={"white"} rounded={10} transform={{base:"translate(50%,150%)",md:"translate(200%,50%)",lg:"translate(450%,50%)"}}  zIndex={1} pos={"absolute"}  > <Loadingspinner/></Box>}
     <Flex   flexDirection={{base:"column",lg:"row"}} gap={{base:0,lg:"30px"}}w={{base:"100%",lg:"80%"}} m="auto" h="auto">
@@ -133,7 +139,10 @@ function Singleprdtpage()
 
 
         </Box>
-    </Flex></Box>)
+    </Flex>
+   
+         {toastauth&&<Toast title={"Cart."} description={"Product added successfully!"}/>}
+    </Box>)
 }
 
 export default Singleprdtpage

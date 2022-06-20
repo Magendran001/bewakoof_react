@@ -1,6 +1,6 @@
 import {Grid,GridItem,Image,Flex,Text,Box,Icon,Spacer} from "@chakra-ui/react";
 import axios from "axios";
-import { Link } from "react-router-dom"
+import { Link, useLocation, useSearchParams } from "react-router-dom"
 import { FaRegHeart } from "react-icons/fa";
 import {useParams} from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
@@ -9,11 +9,14 @@ import { useEffect, useState } from "react";
 import Loadingspinner from "../loadingspinner/loadingspinner";
 
 
-function ProductCard()
+function ProductCard({searchParams,setSearchParams})
 {
 
-    let {category} = useParams();
+ 
 
+    let {category} = useParams();
+    let locaction = useLocation();
+   
     
     let dispatch = useDispatch();
     let data = useSelector(state => state.product.product);
@@ -26,23 +29,37 @@ function ProductCard()
     
       useEffect(()=>{
 
-        dispatch(Fetchproductdata(category))
+        let obj = {
+          
+          
+          color: searchParams.get("color"),
+        sort: searchParams.get("sort"),
+        
+        rating: searchParams.get("rating"),
+        discount: searchParams.get("discount"),
+        size:searchParams.get("size"),
+        brand: searchParams.get("brand"),
+      
+      
+      };
+        console.log(obj,"searchparamscart")
+
+        dispatch(Fetchproductdata(category,obj))
 
       
 
 
-      },[])
+      },[searchParams])
 
 
     return (
      <Box >
       
           <Flex p={"30px"} justifyContent={"flex-end"}>
-             <select name="" id="">
-                <option>Popular</option>
-                <option>New</option>
-                <option>Price:High to Low</option>
-                <option>Price:Low to High</option>
+             <select name="" id="" onChange={(e)=>{searchParams.set("sort",e.target.value);setSearchParams(searchParams)}}>
+               
+                <option value={-1}>Price:High to Low</option>
+                <option value={1}>Price:Low to High</option>
              </select>
           </Flex>
           

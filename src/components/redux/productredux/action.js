@@ -32,11 +32,14 @@ const Fetchproductby_id_error = () => {
     return { type: Producttypes.FETCHPRODUCTEBYIDRROR }
 }
 
-const Fetchproductdata = (category) => (dispatch) => {
+const Fetchproductdata = (category, obj) => (dispatch) => {
 
     dispatch(Fetchproductdatarequest())
 
-    axios.get(`https://bewakoofreact.herokuapp.com/products/${category}`)
+    // https://bewakoofreact.herokuapp.com/
+    axios.get(`https://bewakoofreact.herokuapp.com/products/${category}`, {
+        params: obj
+    })
         .then(res => {
             dispatch(Fetchproductdatasuccess(res.data))
 

@@ -7,6 +7,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { Fetchproductdata } from "../redux/productredux/action";
 import { useEffect, useState } from "react";
 import Loadingspinner from "../loadingspinner/loadingspinner";
+import "./product.css"
 
 
 function ProductCard({searchParams,setSearchParams})
@@ -53,7 +54,7 @@ function ProductCard({searchParams,setSearchParams})
 
 
     return (
-     <Box >
+     <Box   >
       
           <Flex p={"30px"} justifyContent={"flex-end"}>
              <select name="" id="" onChange={(e)=>{searchParams.set("sort",e.target.value);setSearchParams(searchParams)}}>
@@ -64,14 +65,14 @@ function ProductCard({searchParams,setSearchParams})
           </Flex>
           
          
-    <Grid position={"relative"} templateColumns={{base:"repeat(2,1fr)",lg:"repeat(3,1fr)"}} gap={{base:2,lg:30}}>
+    <Grid position={"relative"} templateColumns={{base:"repeat(2,1fr)",lg:"repeat(3,1fr)"}} gap={{base:0,lg:30}}>
 
   
-          {Spinner&&<Box boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' bg={"white"} rounded={10} transform={{base:"translate(50%,150%)",lg:"translate(150%,150%)"}}  zIndex={1} pos={"absolute"}  > <Loadingspinner/></Box>}
+          {Spinner&&<Box boxShadow='rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;' bg={"white"} rounded={10} transform={{base:"translate(70%,150%)",lg:"translate(150%,150%)"}}  zIndex={1} pos={"absolute"}  > <Loadingspinner/></Box>}
          
 
         {data.map(e=>{ return <Link to={`/singleprdt/${e._id}`}><GridItem  h="auto" textAlign={"start"}>
-             <Image h="350px"  src={`https://images.bewakoof.com/t320/${e.display_image}`}/>
+             <Image h={{base:"250px",lg:"350px"}}  src={`https://images.bewakoof.com/t320/${e.display_image}`}/>
              
              <Flex mt="5px"><Text>Bewakoof</Text>
              <Spacer/>

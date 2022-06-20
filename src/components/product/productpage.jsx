@@ -1,4 +1,4 @@
-import {Box,Heading,Flex,Text,Spacer} from "@chakra-ui/react";
+import {Box,Heading,Flex,Text,Spacer, Grid, Button} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown,MdOutlineKeyboardArrowUp } from "react-icons/md";
 import ProductCard from "./productcardpage";
@@ -55,11 +55,11 @@ function Productpage()
    
 
     return (<Box  >
-        <Box     minH="1500px" h="auto" w={{base:"98%",lg:"80%"}} m="auto" mt={"30px"} mb="30px">
+        <Box     minH="1500px" h="auto" w={{base:"98%",lg:"80%"}} m="auto" mt={"80px"} mb="30px">
 
         <Heading   fontSize={"3xl"} display={"flex"}  justifyContent={"start"}>Printed T-Shirts for Men</Heading>
          <Flex   h="auto" gap={30}  flexDirection={{base:"column",lg:"row"}}>
-            <Box onPointerEnter={"cursor"} position={{base:"realtive",lg:"sticky"}} scroll top="200px"  p="30" minH={"500px"} height={"400px"}  overflow="scroll"   flex={2}>
+            <Box position={{base:"realtive",lg:"sticky"}} scroll top="200px"  p="30" minH={{base:"400px",lg:"500px"}} height={"400px"}  overflow="scroll"   flex={2}>
              <Box   >
                       
                       <Flex>
@@ -87,20 +87,29 @@ function Productpage()
                         <Spacer/>
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.size?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
-                      <Box cursor={"pointer"} display={status.size?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
+                      <Flex   className="cursor-btn" gap={2} display={status.size?{base:"flex",lg:"block"}:"none"}  ml="30px" mt="10px" color={"gray"} textAlign="start">
                      
-                      <Text  onClick={()=>paramshandler("size","S")}>S</Text>
-                      <Text  onClick={()=>paramshandler("size","M")}>M</Text>
-                      <Text  onClick={()=>paramshandler("size","M")} >L</Text>
-                      <Text  onClick={()=>paramshandler("size","XL")} >XL</Text>
-                      <Text  onClick={()=>paramshandler("size","2XL")}>2XL</Text>
-                      <Text  onClick={()=>paramshandler("size","3XL")} >3XL</Text>
-                      <Text  onClick={()=>paramshandler("size","4XL")} >4XL</Text>
-                      <Text   onClick={()=>paramshandler("size","5XL")}>5XL</Text>
-                      <Text  onClick={()=>paramshandler("size","6XL")}>6XL</Text>
+                     <Box><button  onClick={()=>paramshandler("size","S")}>S</button></Box>
+                     <Box> <button  onClick={()=>paramshandler("size","M")}>M</button></Box>
+                     <Box><button  onClick={()=>paramshandler("size","M")} >L</button></Box>
+                     <Box> <button  onClick={()=>paramshandler("size","XL")} >XL</button></Box>
+                     <Box> <button  onClick={()=>paramshandler("size","2XL")}>2XL</button></Box>
+                     <Box>  <button  onClick={()=>paramshandler("size","3XL")} >3XL</button></Box>
+                     <Box> <button  onClick={()=>paramshandler("size","4XL")} >4XL</button></Box>
+                     <Box> <button   onClick={()=>paramshandler("size","5XL")}>5XL</button></Box>
+                     <Box>    <button  onClick={()=>paramshandler("size","6XL")}>6XL</button></Box>
+                      
+                     
+                      
+                     
+                     
+                    
+                     
+                     
+                  
 
 
-                      </Box>
+                      </Flex>
                         
                       </Box>
                       <Box mt="10px"> <hr/></Box>
@@ -110,9 +119,11 @@ function Productpage()
                         <Spacer/>
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.Brand?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
-                      <Box cursor={"pointer"} display={status.Brand?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
-                      <Text onClick={()=>{paramshandler("brand","bewakoof")}} >Bewakoof</Text>
-                      <Text onClick={()=>{paramshandler("brand","others")}} >Others</Text>
+                      <Box  className="cursor-btn" gap={2} display={status.Brand?{base:"flex",lg:"block"}:"none"}  ml="30px" mt="10px" color={"gray"} textAlign="start">
+                        <Box><button onClick={()=>{paramshandler("brand","bewakoof")}} >Bewakoof</button></Box>
+                        <Box>  <button onClick={()=>{paramshandler("brand","others")}} >Others</button></Box>
+                      
+                    
                       
                       </Box>
                         
@@ -124,10 +135,13 @@ function Productpage()
                         <Spacer/>
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.color?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
-                      <Box cursor={"pointer"} display={status.color?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
-                      <Text onClick={()=>{}}>Red</Text>
-                      <Text onClick={()=>{}}  >White</Text>
-                      <Text onClick={()=>{  }}  >green</Text>
+                      <Box className="cursor-btn" gap={2} display={status.color?{base:"flex",lg:"block"}:"none"}  ml="30px" mt="10px" color={"gray"} textAlign="start">
+                        <Box>  <button color={"red"} onClick={()=>paramshandler("color","red")}>Red</button></Box>
+                        <Box> <button onClick={()=>paramshandler("color","white")} >White</button></Box>
+                        <Box><button color={"green"} onClick={()=>paramshandler("color","green")}  >green</button></Box>
+                    
+                     
+                      
                       </Box>
                         
                       </Box>
@@ -180,12 +194,18 @@ function Productpage()
                         <Spacer/>
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.Design?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
-                      <Box cursor={"pointer"}display={status.Ratings?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
-                      <Text onClick={()=>paramshandler("rating",4.5)}>4.5 and above</Text>
-                      <Text onClick={()=>paramshandler("rating",4)} >4 and above</Text>
-                      <Text onClick={()=>paramshandler("rating",3.5)}>3.5 and above</Text>
-                      <Text  onClick={()=>paramshandler("rating",3)}>3 and above</Text>
-                      <Text  onClick={()=>paramshandler("rating",2.5)}>2.5 and above</Text>
+                      <Box  flexWrap={"wrap"} className="cursor-btn" gap={2} display={status.Ratings?{base:"flex",lg:"block"}:"none"}  ml="30px" mt="10px" color={"gray"} textAlign="start">
+                        <Box> <button onClick={()=>paramshandler("rating",4.5)}>4.5 and above</button></Box>
+                        <Box>     <button onClick={()=>paramshandler("rating",4)} >4 and above</button></Box>
+                        <Box>  <button onClick={()=>paramshandler("rating",3.5)}>3.5 and above</button></Box>
+                        <Box>  <button  onClick={()=>paramshandler("rating",3)}>3 and above</button></Box>
+                        <Box> <button  onClick={()=>paramshandler("rating",2.5)}>2.5 and above</button></Box>
+                    
+                     
+                 
+                    
+                    
+                     
                       </Box>
                         
                       </Box>
@@ -196,12 +216,16 @@ function Productpage()
                         <Spacer/>
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.Discount?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
-                      <Box cursor={"pointer"} display={status.Discount?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
-                      <Text  onClick={()=>paramshandler("discount",10)}>10% Or More</Text>
+                      <Box  flexWrap={"wrap"} className="cursor-btn" gap={2} display={status.Discount?{base:"flex",lg:"block"}:"none"}  ml="30px" mt="10px" color={"gray"} textAlign="start">
+                        <Box> <button  onClick={()=>paramshandler("discount",10)}>10% Or More</button></Box>
+                        <Box> <button  onClick={()=>paramshandler("discount",30)} >30% Or More</button></Box>
+                        <Box>  <button   onClick={()=>paramshandler("discount",50)}>50% Or More</button></Box>
+                        <Box><button onClick={()=>paramshandler("discount",70)} >70% Or More</button></Box>
                      
-                      <Text  onClick={()=>paramshandler("discount",30)} >30% Or More</Text>
-                      <Text   onClick={()=>paramshandler("discount",50)}>50% Or More</Text>
-                      <Text onClick={()=>paramshandler("discount",70)} >70% Or More</Text>
+                     
+                     
+                    
+                      
                      
                       </Box>
                         
@@ -213,10 +237,12 @@ function Productpage()
                         <Spacer/>
                         <Text fontSize={"32px"} color="black" fontWeight={"light"} >{status.Sort?<MdOutlineKeyboardArrowDown/>:<MdOutlineKeyboardArrowUp/>}</Text>
                       </Flex>
-                      <Box cursor={"pointer"} display={status.Sort?"block":"none"} ml="30px" mt="10px" color={"gray"} textAlign="start">
+                      <Box  className="cursor-btn" gap={2} display={status.Sort?{base:"flex",lg:"block"}:"none"}  ml="30px" mt="10px" color={"gray"} textAlign="start">
                       
-                      <Text   onClick={()=>paramshandler("sort",-1)}>Price:High to Low</Text>
-                      <Text onClick={()=>paramshandler("sort",1)}>Price:Low to High</Text>
+                      <Box> <button   onClick={()=>paramshandler("sort",-1)}>Price:High to Low</button></Box>
+                      <Box>  <button onClick={()=>paramshandler("sort",1)}>Price:Low to High</button></Box>
+                     
+                    
                       </Box>
                         
                       </Box>
@@ -226,7 +252,7 @@ function Productpage()
 
              </Box>
              </Box>
-             <Box  flex={5}>
+             <Box flex={5}>
              <ProductCard searchParams={searchParams} setSearchParams={setSearchParams}/>
              </Box>
          </Flex>

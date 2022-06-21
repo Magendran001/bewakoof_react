@@ -110,9 +110,10 @@ function Landingpage()
     return (<Box className="landingpage" boxSizing="border-box"  m={"auto"}>
          <MenuSlider/>
           <Image   w="98%" h={{base:"100px",lg:"auto"}} m="auto" mt={{base:"0px",lg:"30px"}} src="https://images.bewakoof.com/uploads/grid/app/desktop-tod-strip-men-1654149139.jpg"/>
-          <Design_personal/>
-          <Image  w="99%" m="auto" mt="30px" h={{base:"100px",lg:"auto"}} src="https://images.bewakoof.com/uploads/grid/app/thin-banner1440x150-1654857548.gif"/>
           <Popularcategories/>
+          <Image  w="99%" m="auto" mt="30px" h={{base:"100px",lg:"auto"}} src="https://images.bewakoof.com/uploads/grid/app/thin-banner1440x150-1654857548.gif"/>
+        
+          <Design_personal/>
           <Discount_pe_discount Discount_pe_discount_data={Discount_pe_discount_data}/>
           <Common_slider_5grid header={"BESTSELLERS FOR MEN"} data={Best_seller_data}/>
           <Common_slider_5grid header={"T-SHIRTS UNDER 299"} data={T_shirt_299_data}/>

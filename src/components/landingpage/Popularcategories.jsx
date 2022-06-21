@@ -59,7 +59,7 @@ function Popularcategories()
 {
     return (<Box >
 
-         <Heading>POPULAR CATEGORIES</Heading>
+         <Heading m="10px 0px">POPULAR CATEGORIES</Heading>
          <SimpleGrid columns={{base:3,md:4,lg:6}}  >
             {popularcategoriesdata.map(e=><Popularcategories_singledata data={e}/>)}
            

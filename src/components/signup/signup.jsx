@@ -1,10 +1,11 @@
 import { Box, Center, Flex, Heading } from "@chakra-ui/layout";
 import {Image,Text,Input, Checkbox, Button} from "@chakra-ui/react";
 import {useDispatch,useSelector} from "react-redux";
-import { POSTSIGNUP } from "../redux/signup/action";
+import { Logoutmention, POSTSIGNUP } from "../redux/signup/action";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Toast from "../toast/toast";
+import { Logoutfun } from "../redux/login/action";
 
 function Signup()
 {
@@ -13,13 +14,15 @@ function Signup()
    let history = useLocation();
    console.log(history,"history")
 
-   let toastauth = useSelector(state=>state.toastreducer.active);
-   console.log(toastauth,"toastaut")
+  
+   
     let nav = useNavigate();
     let Data = useSelector(state =>state.Signupreducer.success);
     console.log(Data,"DATA")
 
          useEffect(()=>{
+
+            dispatch(Logoutmention())
 
             if(Data)
          {
@@ -84,7 +87,7 @@ function Signup()
 
 
           </Flex>
-          {toastauth&&<Toast description={"Seem like you are new user"}/>}
+         
     </Box>)
 }
 

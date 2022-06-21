@@ -8,11 +8,15 @@ const Logintypes = {
     "LOGINSUCCESS": "LOGINSUCCESS",
     "LOGINERROR": "LOGINERROR",
     "Logout": "Logout",
-    "newuser": "newuser"
+    "newuser": "newuser",
+    "newuserremove": "newuserremove"
 
 
 }
+const newuserremove = () => {
 
+    return { type: Logintypes.newuserremove }
+}
 const newuser = () => {
     return { type: Logintypes.newuser }
 }
@@ -110,5 +114,5 @@ const POSTLOGIN = (obj, nav) => (dispatch) => {
 
 
 
-export { POSTLOGIN, Logintypes, Logoutfun }
+export { POSTLOGIN, Logintypes, Logoutfun, newuserremove }
 

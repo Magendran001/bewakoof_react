@@ -1,10 +1,11 @@
 import { Box, Center, Flex, Heading } from "@chakra-ui/layout";
-import { POSTLOGIN } from "../redux/login/action";
+import { newuserremove, POSTLOGIN } from "../redux/login/action";
 import {Button, Image,Input,Text,Divider} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Toast from "../toast/toast";
+import { Logoutmention } from "../redux/signup/action";
 
 
 function Login()
@@ -15,8 +16,9 @@ function Login()
     console.log(redirect,"redired")
 
      useEffect(()=>{
+        dispatch(newuserremove())
  
-           
+        setredirect(false)
         window.scrollTo(0, 100)
        
 
@@ -75,12 +77,12 @@ function Login()
         let path = history?.state?.pathname?history.state.pathname:"/";
         console.log(path,"path");
 
-   return  <Navigate to={path} replace={true} state={{pathname:"maggi"}}/>
+   return  <Navigate to={path} replace={true} />
       // nav(history?.state?.pathname?history.state.pathname:"/",{replace:true})
   }
  if(newuser)
  {
-  return  <Navigate to={"/signup"} replace={true} state={history.state}/>
+  return  <Navigate to={"/signup"}  state={history.state}/>
  }
 
 

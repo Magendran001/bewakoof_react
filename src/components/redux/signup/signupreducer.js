@@ -20,12 +20,12 @@ const Signupreducer = (state = init, { type, payload }) => {
             {
 
 
-                return { ...state, isLoading: false, error: true }
+                return { ...state, isLoading: false, error: true, success: false }
             }
 
         case Signuptypes.Logoutmention:
             {
-                return { ...state, }
+                return { ...state, success: false }
             }
 
 
@@ -34,7 +34,7 @@ const Signupreducer = (state = init, { type, payload }) => {
 
         default:
             {
-                return { ...state, success: false }
+                return { ...state }
             }
     }
 

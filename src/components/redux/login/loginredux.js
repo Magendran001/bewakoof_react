@@ -1,4 +1,6 @@
+import { newuserremove } from "./action";
 import { Logintypes } from "./action";
+
 let data = JSON.parse(localStorage.getItem("user_details"));
 let auth = data?.token ? true : false;
 // console.log(data, "datas")
@@ -35,6 +37,10 @@ const Loginreducer = (state = init, { type, payload }) => {
         case Logintypes.newuser:
             {
                 return { ...state, newuser: true }
+            }
+        case Logintypes.newuserremove:
+            {
+                return { ...state, newuser: false }
             }
 
 

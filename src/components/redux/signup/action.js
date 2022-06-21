@@ -6,10 +6,15 @@ const Signuptypes = {
     "SIGNUPREQUEST": "SIGNUPREQUEST",
     "SIGNUPSUCCESS": "SIGNUPSUCCESS",
     "SIGNUPERROR": "SIGNUPERROR",
+    "Logoutmention": "Logoutmention"
 
 
 }
 
+
+const Logoutmention = () => {
+    return { type: Signuptypes.Logoutmention }
+}
 
 
 const Postsignuprequest = () => {
@@ -69,5 +74,5 @@ const POSTSIGNUP = (obj) => (dispatch) => {
 
 
 
-export { POSTSIGNUP, Signuptypes }
+export { POSTSIGNUP, Signuptypes, Logoutmention }
 

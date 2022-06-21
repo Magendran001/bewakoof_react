@@ -18,6 +18,8 @@ function Singleprdtpage()
 
 
     let [redirect,setredirect] =useState(false);
+
+    
  
 
     let toastauth = useSelector(state=>state.toastreducer.active);

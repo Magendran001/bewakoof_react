@@ -1,16 +1,21 @@
 import axios from "axios";
 import { Toastactive, Toastinactive } from "../toast/action";
+import { Logoutmention } from "../signup/action";
 
 
 const Logintypes = {
     "LOGINREQUEST": "LOGINREQUEST",
     "LOGINSUCCESS": "LOGINSUCCESS",
     "LOGINERROR": "LOGINERROR",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "newuser": "newuser"
 
 
 }
 
+const newuser = () => {
+    return { type: Logintypes.newuser }
+}
 
 
 const PostLoginrequest = () => {
@@ -33,6 +38,7 @@ const Logoutfun = () => (dispatch) => {
 
 
     dispatch(Logout())
+    dispatch(Logoutmention())
 }
 
 
@@ -82,7 +88,8 @@ const POSTLOGIN = (obj, nav) => (dispatch) => {
 
             if (err?.response?.data?.User) {
 
-                nav("/signup")
+                // nav("/signup")
+                dispatch(newuser())
 
 
             }

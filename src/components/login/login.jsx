@@ -3,14 +3,18 @@ import { POSTLOGIN } from "../redux/login/action";
 import {Button, Image,Input,Text,Divider} from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import Toast from "../toast/toast";
 
 
 function Login()
 {
 
-    useEffect(()=>{
+
+    let [redirect,setredirect] = useState(false);
+    console.log(redirect,"redired")
+
+     useEffect(()=>{
  
            
         window.scrollTo(0, 100)
@@ -20,6 +24,8 @@ function Login()
 
          
     let history = useLocation();
+    console.log("loginhistory",history.state);
+    console.log("yes")
    
     let toastauth = useSelector(state=>state.toastreducer.active);
 
@@ -27,20 +33,27 @@ function Login()
     let nav = useNavigate();
 
     let dispatch = useDispatch();
+    let newuser = useSelector(state=>state.Loginreducer.newuser);
+
+    console.log(newuser,"newuser")
 
     let selector = useSelector(state=>state.Loginreducer.isAuth);
-    console.log(selector);
+    
+    console.log(selector,"selector")
+    
 
     useEffect(()=>{
 
-        if(selector)
-        {
-            nav(history?.state?.pathname?history.state.pathname:"/",{replace:true})
-        }
+         if(selector)
+         {
+            setredirect(true)
+         }
+       
+       
 
+    },[selector])   
 
-    },[selector])
-
+   
       
     let [loginobj,setloginobj] = useState({});
 
@@ -56,6 +69,20 @@ function Login()
     dispatch(POSTLOGIN({...loginobj},nav))
 
   }
+
+  if(redirect)
+  {
+        let path = history?.state?.pathname?history.state.pathname:"/";
+        console.log(path,"path");
+
+   return  <Navigate to={path} replace={true} state={{pathname:"maggi"}}/>
+      // nav(history?.state?.pathname?history.state.pathname:"/",{replace:true})
+  }
+ if(newuser)
+ {
+  return  <Navigate to={"/signup"} replace={true} state={history.state}/>
+ }
+
 
 
     return (<Box><Flex   direction={{base:"column",lg:"row"}}>

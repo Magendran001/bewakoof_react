@@ -2,7 +2,7 @@ import { Logintypes } from "./action";
 let data = JSON.parse(localStorage.getItem("user_details"));
 let auth = data?.token ? true : false;
 // console.log(data, "datas")
-const init = { userdata: auth ? data : {}, isLoading: false, error: false, isAuth: auth, user_id: auth ? data.user._id : "", token: auth ? data.token : "", };
+const init = { userdata: auth ? data : {}, isLoading: false, error: false, isAuth: auth, user_id: auth ? data.user._id : "", token: auth ? data.token : "", newuser: false };
 
 
 const Loginreducer = (state = init, { type, payload }) => {
@@ -29,7 +29,12 @@ const Loginreducer = (state = init, { type, payload }) => {
         case Logintypes.Logout:
             {
 
-                return { ...state, isAuth: false, userdata: {}, user_details: localStorage.setItem("user_details", JSON.stringify(null)) }
+                return { ...state, isAuth: false, newuser: false, userdata: {}, user_details: localStorage.setItem("user_details", JSON.stringify(null)) }
+            }
+
+        case Logintypes.newuser:
+            {
+                return { ...state, newuser: true }
             }
 
 

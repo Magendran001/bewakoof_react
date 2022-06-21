@@ -5,7 +5,7 @@ import { Logoutmention, POSTSIGNUP } from "../redux/signup/action";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Toast from "../toast/toast";
-import { Logoutfun } from "../redux/login/action";
+import { Logoutfun, newuserremove } from "../redux/login/action";
 
 function Signup()
 {
@@ -22,7 +22,8 @@ function Signup()
 
          useEffect(()=>{
 
-            dispatch(Logoutmention())
+            dispatch(newuserremove())
+            // dispatch(Logoutmention())
 
             if(Data)
          {

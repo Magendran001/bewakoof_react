@@ -27,8 +27,10 @@ function Signup()
 
             if(Data)
          {
+            console.log(history)
+            console.log(history?.state?.pathname,"Data");
             
-            nav(history?.state?.pathname?history.state.pathname:"/")
+            nav(history?.state?.pathname?history.state.pathname:"/",{replace:true})
 
          }
          },[Data])

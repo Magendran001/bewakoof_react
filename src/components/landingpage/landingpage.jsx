@@ -5,6 +5,7 @@ import Design_personal from "./Design-personal";
 import Discount_pe_discount from "./discount_pe_discount";
 import Popularcategories from "./Popularcategories";
 import "./common.css"
+import { useEffect } from "react";
 const Discount_pe_discount_data =[{image:"https://images.bewakoof.com/uploads/grid/app/Mid-Size-Banner-buy2get1-banner-refreshment-1654174580.jpg"},
 {image:"https://images.bewakoof.com/uploads/grid/app/Mid-Size-Banner-play-banner-refreshment-1654174646.jpg"},
 {image:"https://images.bewakoof.com/uploads/grid/app/PlusSize-mid-size-banner-men-June-1654178469.jpg"},
@@ -106,7 +107,17 @@ const The_stupidcollection_data =[{image:"https://images.bewakoof.com/uploads/gr
 ]
 
 function Landingpage()
+
+
+
 {
+     useEffect(()=>{
+
+        window.scrollTo(0, 0)
+     },[])
+
+
+
     return (<Box className="landingpage" boxSizing="border-box"  m={"auto"}>
          <MenuSlider/>
           <Image   w="98%" h={{base:"100px",lg:"auto"}} m="auto" mt={{base:"0px",lg:"30px"}} src="https://images.bewakoof.com/uploads/grid/app/desktop-tod-strip-men-1654149139.jpg"/>
